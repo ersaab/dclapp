@@ -1,0 +1,230 @@
+<div class="row">
+    <div class="col-sm-1 sideLine">
+        <div class="row numb">
+            <ul class="list-group text-center">
+                <li class="list-group-item" [class.active]="display == 1">1</li>
+                <li class="list-group-item" [class.active]="display == 2">2</li>
+                <li class="list-group-item" [class.active]="display == 3">3</li>
+                <li class="list-group-item" [class.active]="display == 4">4</li>
+                <li class="list-group-item done" >DONE</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-11 fullbase">
+        <div class="row lendHead">
+            <div class="col-sm-6">
+                <h2 class="pageheading"><img class="img-fluid card-img" src="" alt="pic"> {{hd}} </h2>
+            </div>
+            <div class="col-sm-6 text-center">
+               <app-navbtns></app-navbtns>
+            </div>
+        </div>
+        <div class="row contentDiv">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10 contentBox">
+                <form [formGroup]="lenderForm"  (ngSubmit)="submit()">
+                <div class="row formfield">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10">
+                        <div class="first"  *ngIf="display == 1" >
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label for="lenderType" >Are you an Individual Private Lender or Firm?</label>
+                                        <select formControlName="lenderType" id="lenderType" class="arrow form-control" required>
+                                            <option value="" class="place" >PLEASE SELECT ONE</option>  
+                                            <option value="Individual">Individual</option>
+                                            <option value="Organization" >Organization</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="orgName">Organization Name <small>(if Applicable)</small></label>
+                                    <input type="text" formControlName="orgName" class="form-control" id="orgName" aria-describedby="" placeholder="">
+                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" formControlName="firstName" class="form-control" id="firstName" aria-describedby="" placeholder="">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" formControlName="lastName" class="form-control" id="lastName" aria-describedby="" placeholder="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label for="phno">Phone Number</label>
+                                    <input type="number" formControlName="phno" class="form-control" id="phno" aria-describedby="" placeholder="">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="email">Email address</label>
+                                    <input type="text" formControlName="emial" class="form-control" id="email" aria-describedby="" placeholder="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="altemail">Alternative Email <small>(if Available)</small></label>
+                                    <input type="text" formControlName="altemail" class="form-control" id="altemail" aria-describedby="" placeholder="">
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="second" *ngIf="display == 2">
+                            <div class="row">
+                                <div class="form-group col-sm-4">
+                                    <label for="unitNo">Unit No</label>
+                                    <input type="text" formControlName="unitNo" class="form-control" id="unitNo" placeholder="1234 ">
+                                </div>
+                                <div class="form-group col-sm-8">
+                                    <label for="streetName">Street Name</label>
+                                    <input type="text" formControlName="streetName" class="form-control" id="streetName" placeholder="Main Street">
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label for="cityName">City</label>
+                                        <input type="text" formControlName="cityName" class="form-control" id="inputCity">
+                                    </div>
+                                   <div class="form-group col-sm-6">
+                                    <label for="stateName">State/Province</label>
+                                    <select formControlName="stateName" id="stateName" class="form-control  arrow">
+                                        <option value="" class="place" >PLEASE SELECT ONE</option>  
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select>
+                                    </div>
+                            </div>
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label for="countryName">Country</label>
+                                        <select formControlName="countryName" id="countryName" class="form-control arrow ">
+                                            <option value="" class="place" >PLEASE SELECT ONE</option>  
+                                            <option value="Canada">Canada</option>
+                                            <option value="US">US</option>
+                                        </select>
+                                        </div>
+                                    <div class="form-group col-sm-6">
+                                    <label for="zipCode">Zip/Postal Code</label>
+                                    <input formControlName="zipCode" type="text" class="form-control" id="zipCode">
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="third" *ngIf="display == 3">
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label for="riskAppetite">Your Risk Appetite</label>
+                                    <select formControlName="riskAppetite" class="form-control arrow" id="riskAppetite">
+                                        <option value="" class="place" >PLEASE SELECT ONE</option>  
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="investAmount">Your approximate Investment Amount</label>
+                                    <input formControlName="investAmount" type="text" class="form-control" id="investAmount" aria-describedby="" placeholder="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label for="knowledge">Your knowledge in Mortgage Industry</label>
+                                    <select formControlName="knowledge" class="form-control arrow" id="knowledge">
+                                        <option value="" class="place" >PLEASE SELECT ONE</option>  
+                                        <option value="">None</option>
+                                        <option value="">Low</option>
+                                        <option value="">Medium</option>
+                                        <option value="">Very Good</option>
+                                    </select>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                    <label for="exp">Years of Experience in Mortgage & Lending Industry?</label>
+                                    <select formControlName="exp" class="form-control  arrow" id="exp">
+                                        <option value="" class="place" >PLEASE SELECT ONE</option>  
+                                        <option value="">None</option>
+                                        <option value="">Less than 1 Year</option>
+                                        <option value="">1 to 3 years </option>
+                                        <option value="">3 to 5 years</option>
+                                        <option value="">More than 5 years</option>
+                                    </select>
+                                    </div>
+                            </div>
+                            
+                            
+                            
+                        </div>
+                        <div class="fourth" *ngIf="display == 4">
+                            <div class="form-group">
+                                <label for="ltvRisk">Your LTV risk Appetite</label>
+                                <select formControlName="ltvRisk" class="form-control arrow" id="ltvRisk">
+                                    <option value="" class="place" >PLEASE SELECT ONE</option>  
+                                    <option value="">Low: 70% and below</option>
+                                    <option value="">Medium 70% to 80%</option>
+                                    <option value="">High more than 90%</option>
+                                    <option value="">Not sure</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label for="prefRate">Your Prefered Rate <small>You can change it anytime in each order</small></label>
+                                    <select formControlName="prefRate" class="form-control arrow" id="prefRate">
+                                        <option value="" class="place" >PLEASE SELECT ONE</option>  
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="prefTerm">Your Prefered Term (Months) <small>You can change it anytime in each order</small></label>
+                                    <select formControlName="prefTerm" class="form-control arrow" id="prefTerm">
+                                        <option value="" class="place" >PLEASE SELECT ONE</option>  
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label for="prefPayback">Prefered payback options</label>
+                                    <select formControlName="prefPayback" class="form-control arrow" id="prefPayback">
+                                        <option value="" class="place" >PLEASE SELECT ONE</option>  
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="termType">Term Type</label>
+                                    <select formControlName="termType" class="form-control arrow" id="termType">
+                                    <option value="" class="place" >PLEASE SELECT ONE</option>  
+                                    <option value="Open" >Open</option>
+                                    <option value="Close">Close</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                    
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+                <div class="row formbtn">
+                    <div class="text-center">
+                        <button class="btn btn-sm btn-danger prevbtn" *ngIf="display != 1" (click)="prev()" >BACK</button> &nbsp;
+                        <button class="btn btn-sm btn-primary nextbtn " *ngIf="display != 4" (click)="next()" >NEXT</button>
+                        <button class="btn btn-sm btn-success subbtn" *ngIf="display == 4"  [disabled]="!lenderForm.valid" >SUBMIT</button>
+                    </div>
+                </div>
+                </form>          
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+</div>

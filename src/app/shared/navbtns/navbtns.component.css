@@ -1,0 +1,31 @@
+ul li{
+    padding: 8px;
+    display:inline-block;
+}
+.simpbtn
+{
+    color: #2f3954;
+    border: none;
+}
+.signinbtn
+{
+    width: 120px;
+    color:white;
+    background-color: #2fccdd;
+    border-color: #2fccdd;
+    border-radius: 90px;
+}
+.signinbtn:hover
+{
+    background-color: rgb(5, 178, 197) !important;
+}
+.btn-outline-success:hover
+{
+    background-color: transparent;
+}
+.btn-outline-success:focus, .btn-outline-success:active
+{
+    background-color: transparent !important;
+    border-radius: 90px;
+    box-shadow: none !important;
+}

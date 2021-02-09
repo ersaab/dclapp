@@ -1,0 +1,209 @@
+
+.numb
+{
+    padding-top: 150px;
+}
+.list-group-item
+{
+    font-weight: 400;
+    font-size: 25px;
+    color: black;
+    margin-left: 30px;
+    margin-right: -40px;
+    text-align: left;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-color: none;
+    border: none;
+    background-color: transparent!important;
+}
+.active
+{
+    font-weight: 400;
+    font-size: 25px;
+    color: black;
+    margin-left: 30px;
+    margin-right: -40px;
+    text-align: left;
+    border-radius: 80px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-color: #f4f5f6;
+    background-color: #f4f5f6!important;
+}
+.pageheading
+{
+    margin-left: 100px;
+    color: black;
+    font-size: 30px;
+    font-family: Verdana;
+}
+label{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Select with Arrow */
+select, input
+{
+    color: #595a5a;
+    border-color:#707070 ;
+    border-radius: 18px;
+}
+select:focus, input:focus
+{
+    border-color: #ffc82d;
+    box-shadow:  0 1px 1px rgba(175, 51, 51, 0.075) inset, 0 0 4px #ffc82d;
+    outline: 0 none;
+}
+.arrow
+{
+    background-image:
+      linear-gradient(45deg, transparent 50%, #ff8000 50%),
+      linear-gradient(135deg, #ff8000 50%, transparent 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position:
+      calc(100% - 25px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px),
+      calc(100% - 2.8em) 0.5em;
+    background-size:
+      9px 9px,
+      10px 9px,
+      0px 0.5em;
+    background-repeat: no-repeat;
+}
+
+.arrow:focus {
+    background-image:
+      linear-gradient(45deg, #ff8000 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, #ff8000 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position:
+      calc(100% - 15px) 1em,
+      calc(100% - 25px) 1em,
+      calc(100% - 2.5em) 0.5em;
+    background-size:
+      10px 9px,
+      9px 9px,
+      1px 1.5em;
+    background-repeat: no-repeat;
+    border-color:#ffc82d;
+    outline: 0;
+  }
+
+
+
+  /* Select with Arrow */
+  
+
+.done
+{
+    font-size: 20px;
+    text-align: left;
+    border: none;
+    margin-left: 10px !important;
+    background-color: transparent !important;
+}
+.btn-radio
+{
+    color:#adadad;
+    font-weight: normal;
+    font-size: 20px;
+    border: 2px #adadad solid;
+    background-color: white;
+}
+.btn-radio:hover
+{
+    color:white;
+    background-color:  #ffc82d ;
+}
+
+.sideLine
+{
+    border-top-left-radius: 40px;
+    height:660px;
+    width: max-content;
+    background-color: #ffc82d;
+}
+.lendHead
+{
+    padding-top: 50px;
+}
+.contentDiv
+{
+    padding-top: 10px;
+    background-color:transparent;
+    height: 520px;
+}
+.contentBox
+{
+    padding-top: 30px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;;
+    border-radius: 28px;
+    box-shadow: 5px 10px 6px #00000029;
+    width: max-content;
+    opacity: 1;
+}
+.formfield
+{
+    height: max-content;
+}
+
+
+.formbtn
+{
+    padding-top: 6px;
+}
+.prevbtn, .nextbtn, .subbtn
+{
+    width: 130px;
+    height: 33px;
+    color: white;
+    border-style: solid;
+    border-radius: 18px;
+    font-weight: 500;
+    
+}
+.prevbtn
+{
+    border-color:#ff8000;
+    background-color:#ff8000;
+}
+.prevbtn:active, .prevbtn:focus
+{
+    border-color: #ff8000 !important;
+    background-color: #ff8000 !important;
+    box-shadow: none !important;
+}
+.nextbtn
+{
+    border-color:#3556fc ;
+    background-color: #3556fc;
+}
+.nextbtn:active, .nextbtn:focus
+{
+    border-color: #3556fc !important ;
+    background-color: #3556fc !important;
+    box-shadow: none !important;
+}
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .done{
+        margin-left: 2px;
+    }
+}
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+  /* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

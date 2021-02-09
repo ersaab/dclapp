@@ -1,0 +1,35 @@
+lendquesdata = [
+    {
+        pid: 1,
+        type:"Are you an individual private lender",
+        company:"Organization Name (if applicable)",
+        fname: "First Name",
+        lname: "Last Name",
+        phone: "Phone Number",
+        email:"Email Address",
+        altemail: "Alternative Email Address"
+    },
+    {
+        pid: 2,
+        address:"Address",
+        city: "City",
+        state: "State/Province",
+        country: "Country",
+        postal: "Postal/Zip Code"
+    }
+    {
+        pid:3,
+        risk: "Your Risk Appetite",
+        budget: "Your approximate Investment Amount ",
+        knowledge: "Your knowledge in Mortgage Industry",
+        exp: "Years of Experiance in Mortgae and Lending Industry ?"
+    }
+    {
+        pid:4,
+        ltv: "Your LTV Risk Appetite",
+        rate: "Your Prefered Rate (You can change it anytime in each offer)",
+        term: "Your Preffered Term (Months) (you can change it for each offer later)",
+        payback: "Prefered Payback Options",
+        term: "Terms type (closed / open)"
+    }
+]

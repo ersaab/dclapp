@@ -1,0 +1,62 @@
+.headlog
+{
+    padding-top: 30px;
+}
+.btns
+{
+    padding-top: 45px;
+}
+
+.dash
+{
+    padding-top: 80px;
+}
+.zerofees
+{
+    font-family:'Helvetica';
+    color: #2f3954;
+    font-size: 85px;
+}
+.apply
+{
+    color: #2f3954;
+    padding-top: 30px;
+    font-size: 46px;
+}
+.lines
+{
+    color: #2f3954;
+    padding-top: 40px;
+    font-weight: 400;
+    font-size: 18px;
+}
+.wait
+{
+    color: #2f3954;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 18px;
+}
+.begbtn
+{
+    font-weight: 600;
+    width: 290px;
+    border-radius: 80px;
+    height: 60px;
+    background-color: #fccc34;
+    border-color: #fccc34;
+    color:black;
+}
+.begbtn:focus, .begbtn:active
+{
+    background-color: #f7ca37f3 !important;
+    border-color: #f7ca37f3 !important;
+    color:black !important;
+    box-shadow: none !important;
+}
+.smzero
+{
+    color: #2f3954;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
