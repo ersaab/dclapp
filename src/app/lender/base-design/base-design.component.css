@@ -43,6 +43,13 @@ label{
     font-weight: 500;
 }
 
+#browsers{
+    background-color: red !important;
+    border-radius: 85px !important;
+    color: red;
+}
+
+
 /* Select with Arrow */
 select, input
 {

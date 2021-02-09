@@ -1,10 +1,14 @@
 .headlog
 {
-    padding-top: 30px;
+    padding-top: 20px;
+}
+.dclogo
+{
+    padding-top: 25px;
 }
 .btns
 {
-    padding-top: 45px;
+    padding-top: 40px;
 }
 
 .dash
@@ -13,15 +17,18 @@
 }
 .zerofees
 {
-    font-family:'Helvetica';
+    font-family:'myriad-pro';
     color: #2f3954;
+    letter-spacing: -2.25px;
     font-size: 85px;
 }
 .apply
 {
     color: #2f3954;
     padding-top: 30px;
-    font-size: 46px;
+    font-size: 42px;
+    font-weight: 500;
+    font-family: 'myriad-pro';
 }
 .lines
 {
@@ -29,6 +36,7 @@
     padding-top: 40px;
     font-weight: 400;
     font-size: 18px;
+    font-family: 'myriad-pro';
 }
 .wait
 {
@@ -36,11 +44,13 @@
     padding-top: 20px;
     padding-bottom: 20px;
     font-size: 18px;
+    font-family: 'myriad-pro';
 }
 .begbtn
 {
-    font-weight: 600;
+    font-weight: 700;
     width: 290px;
+    font-family: 'Segoe UI';
     border-radius: 80px;
     height: 60px;
     background-color: #fccc34;
