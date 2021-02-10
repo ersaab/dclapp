@@ -1,22 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } 
-    from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-base-design',
-  templateUrl: './base-design.component.html',
-  styleUrls: ['./base-design.component.css']
+  selector: 'app-ques-page',
+  templateUrl: './ques-page.component.html',
+  styleUrls: ['./ques-page.component.css']
 })
-export class BaseDesignComponent implements OnInit {
+export class QuesPageComponent implements OnInit {
   display:number = 1;
   hd:any;
-  arr:any = ["", "1 - Profile Information", "2 - Address Information", "3 - Experience", "4 - Risk Tollerance"]
-  items: string[] = ['ORGANIZATION', 'INDIVIDUAL'];
-  changeText : boolean;
+  arr:any = ["", "1 - ", "2 - ", "3 - ", "4 - ","5 - ","6 - ","7 - "]
 
-  lenderForm = new FormGroup ({
+  mortgageApplication = new FormGroup ({
     "lenderType": new FormControl("", Validators.required),
     "orgName": new FormControl("", ),
 
@@ -56,7 +52,7 @@ export class BaseDesignComponent implements OnInit {
   submit()
   {
     console.log("reactive form submitted");
-    console.log(this.lenderForm);
+    console.log(this.mortgageApplication);
   }
   prev()
   {
@@ -69,4 +65,5 @@ export class BaseDesignComponent implements OnInit {
   ngOnInit(): void {
     this.hd=this.arr[this.display];
 }
+
 }

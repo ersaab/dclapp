@@ -15,6 +15,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { BaseDesignComponent } from './lender/base-design/base-design.component';
 import { InitialPageComponent } from './lender/initial-page/initial-page.component';
 import { ProfileQuesComponent } from './lender/profile-ques/profile-ques.component';
+import { FrontPageComponent } from './applicant/front-page/front-page.component';
+import { QuesPageComponent } from './applicant/ques-page/ques-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ProfileQuesComponent } from './lender/profile-ques/profile-ques.compone
     ProfileQuesComponent,
     DashboardComponent,
     BrandLogoComponent,
-    FooterComponent
+    FooterComponent,
+    FrontPageComponent,
+    QuesPageComponent
   ],
   imports: [
     BrowserModule,

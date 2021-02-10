@@ -1,6 +1,6 @@
 .numb
 {
-    padding-top: 150px;
+    padding-top: 110px;
 }
 .list-group-item
 {
@@ -11,7 +11,7 @@
     margin-left: 30px;
     margin-right: -40px;
     text-align: left;
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 10px;
     border-color: none;
     border: none;
@@ -36,7 +36,7 @@
 }
 label{
     font-family: 'myriad-pro';
-    font-size: 16px;
+    font-size: 28px;
     font-weight: 500;
 }
 
@@ -126,29 +126,6 @@ select:focus, input:focus
   /* Select with Arrow */
   
 
-.done
-{
-    font-family: 'myriad-pro';
-    font-size: 27px;
-    text-align: left;
-    border: none;
-    margin-left: 10px !important;
-    background-color: transparent !important;
-}
-.btn-radio
-{
-    color:#adadad;
-    font-weight: normal;
-    font-size: 20px;
-    border: 2px #adadad solid;
-    background-color: white;
-}
-.btn-radio:hover
-{
-    color:white;
-    background-color:  #ffc82d ;
-}
-
 .sideLine
 {
     border-top-left-radius: 40px;
@@ -179,7 +156,6 @@ select:focus, input:focus
 {
     height: max-content;
 }
-
 
 .formbtn
 {
@@ -223,11 +199,7 @@ select:focus, input:focus
 
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    .done{
-        margin-left: 2px;
-    }
-}
+@media only screen and (max-width: 600px) {}
   
   /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {}

@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-sm-1 sideLine">
+        <div class="row numb">
+            <ul class="list-group text-center">
+                <li class="list-group-item" [class.active]="display == 1">1</li>
+                <li class="list-group-item" [class.active]="display == 2">2</li>
+                <li class="list-group-item" [class.active]="display == 3">3</li>
+                <li class="list-group-item" [class.active]="display == 4">4</li>
+                <li class="list-group-item" [class.active]="display == 5">5</li>
+                <li class="list-group-item" [class.active]="display == 6">6</li>
+                <li class="list-group-item" [class.active]="display == 7">7</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-11 fullbase">
+        <div class="row lendHead">
+            <div class="col-sm-6">
+                <p class="pageheading"><img class="img-fluid card-img" src="" alt="pic"> {{hd}} </p>
+            </div>
+            <div class="col-sm-6 text-center">
+                <app-navbtns></app-navbtns>
+            </div>
+        </div>
+        <div class="row contentDiv">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10 contentBox">
+                <form [formGroup]="mortgageApplication"  (ngSubmit)="submit()">
+                <div class="row formfield">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10">
+                        <!--Content Here-->
+                        <div class="row first text-center" *ngIf="display ==  1" >
+                            <div class="row max">
+                                <div class="">
+                                    <label for="customRange1" class="form-label">How much Money are you looking to Borrow?</label>
+                                    <input type="range" class="form-range" id="customRange1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+                <div class="row formbtn">
+                    <div class="text-center">
+                        <button class="btn btn-sm btn-danger prevbtn" *ngIf="display != 1" (click)="prev()" >Back</button> &nbsp;
+                        <button class="btn btn-sm btn-primary nextbtn " *ngIf="display != 7" (click)="next()" >Next</button>
+                        <button class="btn btn-sm btn-success subbtn" *ngIf="display == 7"  [disabled]="!lenderForm.valid" >Finish</button>
+                    </div>
+                </div>
+                </form>          
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+</div>

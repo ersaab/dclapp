@@ -13,7 +13,7 @@
     <div class="col-sm-11 fullbase">
         <div class="row lendHead">
             <div class="col-sm-6">
-                <h2 class="pageheading"><img class="img-fluid card-img" src="" alt="pic"> {{hd}} </h2>
+                <p class="pageheading"><img class="img-fluid card-img" src="" alt="pic">{{hd}} </p>
             </div>
             <div class="col-sm-6 text-center">
                <app-navbtns></app-navbtns>
@@ -28,32 +28,35 @@
                     <div class="col-sm-10">
                         <div class="first"  *ngIf="display == 1" >
                             <div class="row">
-                                <div class="form-group">
-                                    <div class="form-group">
+                                    <div class="form-group"  >
+                                    <div ngbDropdown #dropdown="ngbDropdown" >
                                         <label for="lenderType" >Are you an Individual Private Lender or Firm?</label>
-                                        <select formControlName="lenderType" id="lenderType" class="arrow form-control" required>
-                                            <option value="" class="place" >PLEASE SELECT ONE</option>  
-                                            <option value="Individual">Individual</option>
-                                            <option value="Organization" >Organization</option>
-                                        </select>
+                                            <input 
+                                                type="text"
+                                                (mouseenter)="changeText=true" (mouseleave)="changeText=false"
+                                                class="form-control arrow dropdown-input"
+                                                data-toggle="lenderType" 
+                                                [value]="lenderForm.controls['lenderType']?.value" 
+                                                ngbDropdownToggle
+                                                placeholder="CHOOSE ONE"
+                                                readonly> 
+                                            <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                <li  *ngFor="let item of items" 
+                                                    ngbDropdownItem
+                                                    (click)="lenderForm.controls['lenderType'].setValue(item)"
+                                                    class="dropdown-item">
+                                                    <span>{{item}}</span>
+                                                </li>
+                                            </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            
+                            <div class="row" *ngIf="(lenderForm.controls['lenderType'].value) == 'ORGANIZATION' ">
                                 <div class="form-group">
                                     <label for="orgName">Organization Name <small>(if Applicable)</small></label>
                                     <input type="text" formControlName="orgName" class="form-control" id="orgName" aria-describedby="" placeholder="">
                                     </div>
-                            </div>
-                            <div class="row">
-                                <input list="browsers" name="browser" placeholder="CHOOSE ONE" >
-                                <datalist id="browsers">
-                                    <option value="Internet Explorer">
-                                    <option value="Firefox">
-                                    <option value="Chrome">
-                                    <option value="Opera">
-                                    <option value="Safari">
-                                </datalist>
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-6">
@@ -72,7 +75,7 @@
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label for="email">Email address</label>
-                                    <input type="text" formControlName="emial" class="form-control" id="email" aria-describedby="" placeholder="">
+                                    <input type="text" formControlName="email" class="form-control" id="email" aria-describedby="" placeholder="">
                                 </div>
                             </div>
                             <div class="row">
@@ -86,11 +89,11 @@
                             <div class="row">
                                 <div class="form-group col-sm-4">
                                     <label for="unitNo">Unit No</label>
-                                    <input type="text" formControlName="unitNo" class="form-control" id="unitNo" placeholder="1234 ">
+                                    <input type="number" formControlName="unitNo" class="form-control" id="unitNo" placeholder="1234">
                                 </div>
                                 <div class="form-group col-sm-8">
                                     <label for="streetName">Street Name</label>
-                                    <input type="text" formControlName="streetName" class="form-control" id="streetName" placeholder="Main Street">
+                                    <input type="text" formControlName="streetName" class="form-control" id="streetName" placeholder="MAIN STREET">
                                 </div>
                             </div>
                             <div class="row">
@@ -127,7 +130,7 @@
                         <div class="third" *ngIf="display == 3">
                             <div class="row">
                                 <div class="form-group col-sm-6">
-                                    <label for="riskAppetite">Your Risk Appetite</label>
+                                    <label for="riskAppetite">Risk Appetite</label>
                                     <select formControlName="riskAppetite" class="form-control arrow" id="riskAppetite">
                                         <option value="" class="place" >PLEASE SELECT ONE</option>  
                                         <option value="Low">Low</option>
@@ -136,13 +139,13 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <label for="investAmount">Your approximate Investment Amount</label>
+                                    <label for="investAmount">Approximate Investment Amount</label>
                                     <input formControlName="investAmount" type="text" class="form-control" id="investAmount" aria-describedby="" placeholder="">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-6">
-                                    <label for="knowledge">Your knowledge in Mortgage Industry</label>
+                                    <label for="knowledge">Knowledge in Mortgage Industry</label>
                                     <select formControlName="knowledge" class="form-control arrow" id="knowledge">
                                         <option value="" class="place" >PLEASE SELECT ONE</option>  
                                         <option value="">None</option>
@@ -169,7 +172,7 @@
                         </div>
                         <div class="fourth" *ngIf="display == 4">
                             <div class="form-group">
-                                <label for="ltvRisk">Your LTV risk Appetite</label>
+                                <label for="ltvRisk">LTV risk Appetite</label>
                                 <select formControlName="ltvRisk" class="form-control arrow" id="ltvRisk">
                                     <option value="" class="place" >PLEASE SELECT ONE</option>  
                                     <option value="">Low: 70% and below</option>
@@ -180,14 +183,14 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-6">
-                                    <label for="prefRate">Your Prefered Rate <small>You can change it anytime in each order</small></label>
+                                    <label for="prefRate">Prefered Rate <small>You can change it anytime in each order</small></label>
                                     <select formControlName="prefRate" class="form-control arrow" id="prefRate">
                                         <option value="" class="place" >PLEASE SELECT ONE</option>  
                                         <option></option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <label for="prefTerm">Your Prefered Term (Months) <small>You can change it anytime in each order</small></label>
+                                    <label for="prefTerm">Prefered Term (Months) <small>You can change it anytime in each order</small></label>
                                     <select formControlName="prefTerm" class="form-control arrow" id="prefTerm">
                                         <option value="" class="place" >PLEASE SELECT ONE</option>  
                                         <option value=""></option>
@@ -227,9 +230,9 @@
                 </div>
                 <div class="row formbtn">
                     <div class="text-center">
-                        <button class="btn btn-sm btn-danger prevbtn" *ngIf="display != 1" (click)="prev()" >BACK</button> &nbsp;
-                        <button class="btn btn-sm btn-primary nextbtn " *ngIf="display != 4" (click)="next()" >NEXT</button>
-                        <button class="btn btn-sm btn-success subbtn" *ngIf="display == 4"  [disabled]="!lenderForm.valid" >SUBMIT</button>
+                        <button class="btn btn-sm btn-danger prevbtn" *ngIf="display != 1" (click)="prev()" >Back</button> &nbsp;
+                        <button class="btn btn-sm btn-primary nextbtn " *ngIf="display != 4" (click)="next()" >Next</button>
+                        <button class="btn btn-sm btn-success subbtn" *ngIf="display == 4"  [disabled]="!lenderForm.valid" >Finish</button>
                     </div>
                 </div>
                 </form>          
