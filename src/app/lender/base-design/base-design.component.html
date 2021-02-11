@@ -6,7 +6,7 @@
                 <li class="list-group-item" [class.active]="display == 2">2</li>
                 <li class="list-group-item" [class.active]="display == 3">3</li>
                 <li class="list-group-item" [class.active]="display == 4">4</li>
-                <li class="list-group-item done" >DONE</li>
+                <li class="list-group-item done" [class.active]="display == 5" >DONE</li>
             </ul>
         </div>
     </div>
@@ -28,35 +28,35 @@
                     <div class="col-sm-10">
                         <div class="first"  *ngIf="display == 1" >
                             <div class="row">
-                                    <div class="form-group"  >
+                                <div class="form-group"  >
                                     <div ngbDropdown #dropdown="ngbDropdown" >
                                         <label for="lenderType" >Are you an Individual Private Lender or Firm?</label>
-                                            <input 
-                                                type="text"
-                                                (mouseenter)="changeText=true" (mouseleave)="changeText=false"
-                                                class="form-control arrow dropdown-input"
-                                                data-toggle="lenderType" 
-                                                [value]="lenderForm.controls['lenderType']?.value" 
-                                                ngbDropdownToggle
-                                                placeholder="CHOOSE ONE"
-                                                readonly> 
-                                            <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
-                                                <li  *ngFor="let item of items" 
-                                                    ngbDropdownItem
-                                                    (click)="lenderForm.controls['lenderType'].setValue(item)"
-                                                    class="dropdown-item">
-                                                    <span>{{item}}</span>
-                                                </li>
-                                            </ul>
+                                        <input 
+                                            type="text"
+                                            (mouseenter)="changeText=true" 
+                                            (mouseleave)="changeText=false"
+                                            class="form-control arrow dropdown-input"
+                                            data-toggle="lenderType" 
+                                            [value]="lenderForm.controls['lenderType']?.value" 
+                                            ngbDropdownToggle
+                                            placeholder="CHOOSE ONE"
+                                            readonly>
+                                        <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                            <li  *ngFor="let type of lendTypes" 
+                                                ngbDropdownItem
+                                                (click)="lenderForm.controls['lenderType'].setValue(type)"
+                                                class="dropdown-item">
+                                                <span>{{type}}</span>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                            
                             <div class="row" *ngIf="(lenderForm.controls['lenderType'].value) == 'ORGANIZATION' ">
                                 <div class="form-group">
                                     <label for="orgName">Organization Name <small>(if Applicable)</small></label>
                                     <input type="text" formControlName="orgName" class="form-control" id="orgName" aria-describedby="" placeholder="">
-                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-6">
@@ -82,45 +82,70 @@
                                 <div class="form-group">
                                     <label for="altemail">Alternative Email <small>(if Available)</small></label>
                                     <input type="text" formControlName="altemail" class="form-control" id="altemail" aria-describedby="" placeholder="">
-                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="second" *ngIf="display == 2">
                             <div class="row">
+                                
+                                <div class="form-group col-sm-8">
+                                    <label for="address">Address</label>
+                                    <input type="text" formControlName="address" class="form-control" id="address" placeholder="MAIN STREET">
+                                </div>
                                 <div class="form-group col-sm-4">
                                     <label for="unitNo">Unit No</label>
                                     <input type="number" formControlName="unitNo" class="form-control" id="unitNo" placeholder="1234">
                                 </div>
-                                <div class="form-group col-sm-8">
-                                    <label for="streetName">Street Name</label>
-                                    <input type="text" formControlName="streetName" class="form-control" id="streetName" placeholder="MAIN STREET">
-                                </div>
                             </div>
                             <div class="row">
-                                    <div class="form-group col-sm-6">
-                                        <label for="cityName">City</label>
-                                        <input type="text" formControlName="cityName" class="form-control" id="inputCity">
+                                <div class="form-group col-sm-6">
+                                    <label for="cityName">City</label>
+                                    <input type="text" formControlName="cityName" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <div ngbDropdown #dropdown="ngbDropdown" >
+                                        <label for="stateName" >State/Province</label>
+                                        <input 
+                                            type="text"
+                                            class="form-control arrow dropdown-input"
+                                            data-toggle="stateName" 
+                                            [value]="lenderForm.controls['stateName']?.value" 
+                                            ngbDropdownToggle
+                                            placeholder="CHOOSE ONE"
+                                            readonly> 
+                                        <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                            <li *ngFor="let state of stateList" 
+                                                ngbDropdownItem
+                                                (click)="lenderForm.controls['stateName'].setValue(state)"
+                                                class="dropdown-item">
+                                                <span>{{state}}</span>
+                                            </li>
+                                        </ul>
                                     </div>
-                                   <div class="form-group col-sm-6">
-                                    <label for="stateName">State/Province</label>
-                                    <select formControlName="stateName" id="stateName" class="form-control  arrow">
-                                        <option value="" class="place" >PLEASE SELECT ONE</option>  
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select>
-                                    </div>
+                                </div>
                             </div>
                                 <div class="row">
                                     <div class="form-group col-sm-6">
-                                        <label for="countryName">Country</label>
-                                        <select formControlName="countryName" id="countryName" class="form-control arrow ">
-                                            <option value="" class="place" >PLEASE SELECT ONE</option>  
-                                            <option value="Canada">Canada</option>
-                                            <option value="US">US</option>
-                                        </select>
+                                        <div ngbDropdown #dropdown="ngbDropdown" >
+                                            <label for="countryName" >Country</label>
+                                            <input
+                                                type="text"
+                                                class="form-control arrow dropdown-input"
+                                                data-toggle="countryName" 
+                                                [value]="lenderForm.controls['countryName']?.value" 
+                                                ngbDropdownToggle
+                                                placeholder="CHOOSE ONE"
+                                                readonly>
+                                            <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                <li  *ngFor="let country of countryList" 
+                                                    ngbDropdownItem
+                                                    (click)="lenderForm.controls['countryName'].setValue(country)"
+                                                    class="dropdown-item">
+                                                    <span>{{country}}</span>
+                                                </li>
+                                            </ul>
                                         </div>
+                                    </div>
                                     <div class="form-group col-sm-6">
                                     <label for="zipCode">Zip/Postal Code</label>
                                     <input formControlName="zipCode" type="text" class="form-control" id="zipCode">
@@ -130,13 +155,25 @@
                         <div class="third" *ngIf="display == 3">
                             <div class="row">
                                 <div class="form-group col-sm-6">
-                                    <label for="riskAppetite">Risk Appetite</label>
-                                    <select formControlName="riskAppetite" class="form-control arrow" id="riskAppetite">
-                                        <option value="" class="place" >PLEASE SELECT ONE</option>  
-                                        <option value="Low">Low</option>
-                                        <option value="Medium">Medium</option>
-                                        <option value="High">High</option>
-                                    </select>
+                                    <div ngbDropdown #dropdown="ngbDropdown" >
+                                        <label for="riskAppetite" >Risk Appetite</label>
+                                        <input 
+                                            type="text"
+                                            class="form-control arrow dropdown-input"
+                                            data-toggle="riskAppetite" 
+                                            [value]="lenderForm.controls['riskAppetite']?.value" 
+                                            ngbDropdownToggle
+                                            placeholder="CHOOSE ONE"
+                                            readonly> 
+                                        <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                            <li  *ngFor="let item of riskAppList" 
+                                                ngbDropdownItem
+                                                (click)="lenderForm.controls['riskAppetite'].setValue(item)"
+                                                class="dropdown-item">
+                                                <span>{{item}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label for="investAmount">Approximate Investment Amount</label>
@@ -145,85 +182,127 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-6">
-                                    <label for="knowledge">Knowledge in Mortgage Industry</label>
-                                    <select formControlName="knowledge" class="form-control arrow" id="knowledge">
-                                        <option value="" class="place" >PLEASE SELECT ONE</option>  
-                                        <option value="">None</option>
-                                        <option value="">Low</option>
-                                        <option value="">Medium</option>
-                                        <option value="">Very Good</option>
-                                    </select>
+                                    <div ngbDropdown #dropdown="ngbDropdown" >
+                                        <label for="knowledge" >Knowledge in Mortgage Industry</label>
+                                        <input 
+                                            type="text"
+                                            class="form-control arrow dropdown-input"
+                                            data-toggle="knowledge" 
+                                            [value]="lenderForm.controls['knowledge']?.value" 
+                                            ngbDropdownToggle
+                                            placeholder="CHOOSE ONE"
+                                            readonly> 
+                                        <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                            <li  *ngFor="let item of knowList" 
+                                                ngbDropdownItem
+                                                (click)="lenderForm.controls['knowledge'].setValue(item)"
+                                                class="dropdown-item">
+                                                <span>{{item}}</span>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <div class="form-group col-sm-6">
-                                    <label for="exp">Years of Experience in Mortgage & Lending Industry?</label>
-                                    <select formControlName="exp" class="form-control  arrow" id="exp">
-                                        <option value="" class="place" >PLEASE SELECT ONE</option>  
-                                        <option value="">None</option>
-                                        <option value="">Less than 1 Year</option>
-                                        <option value="">1 to 3 years </option>
-                                        <option value="">3 to 5 years</option>
-                                        <option value="">More than 5 years</option>
-                                    </select>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                   <div ngbDropdown #dropdown="ngbDropdown" >
+                                        <label for="exp" >Years of Experience in Mortgage & Lending Industry?</label>
+                                        <input 
+                                            type="text"
+                                            class="form-control arrow dropdown-input"
+                                            data-toggle="exp" 
+                                            [value]="lenderForm.controls['exp']?.value" 
+                                            ngbDropdownToggle
+                                            placeholder="CHOOSE ONE"
+                                            readonly> 
+                                        <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                            <li  *ngFor="let exp of expList" 
+                                                ngbDropdownItem
+                                                (click)="lenderForm.controls['exp'].setValue(exp)"
+                                                class="dropdown-item">
+                                                <span>{{exp}}</span>
+                                            </li>
+                                        </ul>
                                     </div>
+                                </div>
                             </div>
-                            
-                            
-                            
                         </div>
                         <div class="fourth" *ngIf="display == 4">
                             <div class="form-group">
-                                <label for="ltvRisk">LTV risk Appetite</label>
-                                <select formControlName="ltvRisk" class="form-control arrow" id="ltvRisk">
-                                    <option value="" class="place" >PLEASE SELECT ONE</option>  
-                                    <option value="">Low: 70% and below</option>
-                                    <option value="">Medium 70% to 80%</option>
-                                    <option value="">High more than 90%</option>
-                                    <option value="">Not sure</option>
-                                </select>
+                                <div ngbDropdown #dropdown="ngbDropdown" >
+                                    <label for="ltvRisk" >LTV risk Appetite</label>
+                                    <input 
+                                        type="text"
+                                        class="form-control arrow dropdown-input"
+                                        data-toggle="ltvRisk" 
+                                        [value]="lenderForm.controls['ltvRisk']?.value" 
+                                        ngbDropdownToggle
+                                        placeholder="CHOOSE ONE"
+                                        readonly> 
+                                    <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                        <li  *ngFor="let risk of risklist" 
+                                            ngbDropdownItem
+                                            (click)="lenderForm.controls['ltvRisk'].setValue(risk)"
+                                            class="dropdown-item">
+                                            <span>{{risk}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-6">
                                     <label for="prefRate">Prefered Rate <small>You can change it anytime in each order</small></label>
-                                    <select formControlName="prefRate" class="form-control arrow" id="prefRate">
-                                        <option value="" class="place" >PLEASE SELECT ONE</option>  
-                                        <option></option>
-                                    </select>
+                                    <input formControlName="prefRate" type="text" class="form-control" id="prefRate" aria-describedby="" placeholder="">
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label for="prefTerm">Prefered Term (Months) <small>You can change it anytime in each order</small></label>
-                                    <select formControlName="prefTerm" class="form-control arrow" id="prefTerm">
-                                        <option value="" class="place" >PLEASE SELECT ONE</option>  
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select>
+                                    <input formControlName="prefTerm" type="text" class="form-control" id="prefTerm" aria-describedby="" placeholder="">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-sm-6">
-                                    <label for="prefPayback">Prefered payback options</label>
-                                    <select formControlName="prefPayback" class="form-control arrow" id="prefPayback">
-                                        <option value="" class="place" >PLEASE SELECT ONE</option>  
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select>
+                                    <div ngbDropdown #dropdown="ngbDropdown" >
+                                        <label for="prefPayback" >Prefered payback options</label>
+                                        <input 
+                                            type="text"
+                                            class="form-control arrow dropdown-input"
+                                            data-toggle="prefPayback" 
+                                            [value]="lenderForm.controls['prefPayback']?.value" 
+                                            ngbDropdownToggle
+                                            placeholder="CHOOSE ONE"
+                                            readonly> 
+                                        <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                            <li  *ngFor="let payBack of payBackList" 
+                                                ngbDropdownItem
+                                                (click)="lenderForm.controls['prefPayback'].setValue(payBack)"
+                                                class="dropdown-item">
+                                                <span>{{payBack}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <label for="termType">Term Type</label>
-                                    <select formControlName="termType" class="form-control arrow" id="termType">
-                                    <option value="" class="place" >PLEASE SELECT ONE</option>  
-                                    <option value="Open" >Open</option>
-                                    <option value="Close">Close</option>
-                                    </select>
-                                </div>
+                                        <div ngbDropdown #dropdown="ngbDropdown" >
+                                            <label for="termType" >Term Types</label>
+                                            <input 
+                                                type="text"
+                                                class="form-control arrow dropdown-input"
+                                                data-toggle="termType" 
+                                                [value]="lenderForm.controls['termType']?.value" 
+                                                ngbDropdownToggle
+                                                placeholder="CHOOSE ONE"
+                                                readonly> 
+                                            <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                <li  *ngFor="let term of termTypeList" 
+                                                    ngbDropdownItem
+                                                    (click)="lenderForm.controls['termType'].setValue(term)"
+                                                    class="dropdown-item">
+                                                    <span>{{term}}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                      </div>
                             </div>
-                            
-                    
                         </div>
                     </div>
                     <div class="col-sm-1"></div>
@@ -231,8 +310,8 @@
                 <div class="row formbtn">
                     <div class="text-center">
                         <button class="btn btn-sm btn-danger prevbtn" *ngIf="display != 1" (click)="prev()" >Back</button> &nbsp;
-                        <button class="btn btn-sm btn-primary nextbtn " *ngIf="display != 4" (click)="next()" >Next</button>
-                        <button class="btn btn-sm btn-success subbtn" *ngIf="display == 4"  [disabled]="!lenderForm.valid" >Finish</button>
+                        <button class="btn btn-sm btn-primary nextbtn " *ngIf="display != 5" (click)="next()" >Next</button>
+                        <button class="btn btn-sm btn-success subbtn" *ngIf="display == 5"  [disabled]="!lenderForm.valid" >Finish</button>
                     </div>
                 </div>
                 </form>          

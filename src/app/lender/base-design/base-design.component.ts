@@ -12,22 +12,31 @@ import { Router } from '@angular/router';
 export class BaseDesignComponent implements OnInit {
   display:number = 1;
   hd:any;
-  arr:any = ["", "1 - Profile Information", "2 - Address Information", "3 - Experience", "4 - Risk Tollerance"]
-  items: string[] = ['ORGANIZATION', 'INDIVIDUAL'];
-  changeText : boolean;
+  arr:any = ["", " 1 - Profile Information", " 2 - Address Information", " 3 - Experience", " 4- Risk Tollerance", " Review & Submit"]
+  lendTypes: string[] = ['ORGANIZATION', 'INDIVIDUAL'];
 
+  stateList: string[]= [ "1", "2", "3" ];
+  countryList: string[] = ["CANADA", "USA"]
+  riskAppList:string[] = ["LOW", "MEDIUM", "HIGH" ];
+  knowList: string[] = ["NONE","LOW", "MEDIUM", "HIGH"]
+  expList:string[] = ["NONE", "LESS THAN 1 YEAR", "1 - 3 YEARS", "3 - 5 YEARS", "MORE THAN 5 YEARS"]
+  risklist:string[] = ["LOW: 70% & BELOW", "MEDIUM: 70% - 80%", "HIGH: MORE THAN 90%", "NOT SURE"]
+  payBackList: string[] = ["1", "2", "3 "]
+  termTypeList: string[] = ["OPEN", "CLOSE"]
+
+  
   lenderForm = new FormGroup ({
     "lenderType": new FormControl("", Validators.required),
-    "orgName": new FormControl("", ),
+    "orgName": new FormControl("" ),
 
     "firstName": new FormControl("", Validators.required),
     "lastName": new FormControl("", Validators.required),
     "phno": new FormControl("", Validators.required),
-    "email": new FormControl("", Validators.required),
+    "email": new FormControl("", [Validators.required, Validators.email]),
     "altemail": new FormControl("", Validators.required),
     "unitNo": new FormControl("", Validators.required),
 
-    "streetName": new FormControl("", Validators.required),
+    "address": new FormControl("", Validators.required),
     "cityName": new FormControl("", Validators.required),
     "stateName": new FormControl("", Validators.required),
     "countryName": new FormControl("", Validators.required),

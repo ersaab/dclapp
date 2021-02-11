@@ -9,11 +9,12 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 })
 export class QuesPageComponent implements OnInit {
   display:number = 1;
+  box:number = 1;
   hd:any;
   arr:any = ["", "1 - ", "2 - ", "3 - ", "4 - ","5 - ","6 - ","7 - "]
 
   mortgageApplication = new FormGroup ({
-    "lenderType": new FormControl("", Validators.required),
+    "borrowAmount": new FormControl(""),
     "orgName": new FormControl("", ),
 
     "firstName": new FormControl("", Validators.required),

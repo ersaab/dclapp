@@ -30,21 +30,39 @@
                     <div class="col-sm-10">
                         <!--Content Here-->
                         <div class="row first text-center" *ngIf="display ==  1" >
-                            <div class="row max">
-                                <div class="">
-                                    <label for="customRange1" class="form-label">How much Money are you looking to Borrow?</label>
-                                    <input type="range" class="form-range" id="customRange1">
-                                </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="borrowAmount">How much Money are you looking to Borrow?</label>
+                                    <div class="row rangeBox">
+                                        <input type="range" class="form-control-range slider" 
+                                        formControlName = "borrowAmount" 
+                                        [value]="mortgageApplication.controls['borrowAmount'].value"
+                                        min="1" 
+                                        step="1" 
+                                        max="2000000" >
+                                        <p class="rangesides"> <span class="float-left">$0</span>  <span class="float-right">$2M+</span>  <p>
+                                        <div class="row inprange">
+                                            <input type="number" 
+                                                class="form-control inpbar" 
+                                                formControlName="borrowAmount" 
+                                                [value]="mortgageApplication.controls['borrowAmount'].value" 
+                                                min="1" 
+                                                step="1" 
+                                                max="2000000">
+                                        </div>
+                                    </div>
+                                  </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-1"></div>
                 </div>
                 <div class="row formbtn">
-                    <div class="text-center">
+                    <div class="col-sm-12 text-center">
+                        <button class="btn btn-sm btn-danger prevbtn" *ngIf="display == 1" [routerLink]="['/Applicant']" >Back</button>
                         <button class="btn btn-sm btn-danger prevbtn" *ngIf="display != 1" (click)="prev()" >Back</button> &nbsp;
                         <button class="btn btn-sm btn-primary nextbtn " *ngIf="display != 7" (click)="next()" >Next</button>
-                        <button class="btn btn-sm btn-success subbtn" *ngIf="display == 7"  [disabled]="!lenderForm.valid" >Finish</button>
+                        <button class="btn btn-sm btn-success subbtn" *ngIf="display == 7"  [disabled]="!mortgageApplication.valid" >Finish</button>
                     </div>
                 </div>
                 </form>          
