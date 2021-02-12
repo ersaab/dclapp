@@ -11,11 +11,35 @@ export class QuesPageComponent implements OnInit {
   display:number = 1;
   box:number = 1;
   hd:any;
-  arr:any = ["", "1 - ", "2 - ", "3 - ", "4 - ","5 - ","6 - ","7 - "]
+  arr:any = ["", 
+             "1 - Loan Information", 
+             "2 - Subject Property Information", 
+             "3 - Current Mortgage information", 
+             "4 - Contact Information",
+             "5 - Applicant Information",
+             "6 - Income Information",
+             "7 - Add a Co-Applicant"]
+
+  quesData = 
+  { 
+    qid1:'How much Money are you looking to Borrow?',
+    qid2:'When do you need this money in-hand?',
+    opt2: ["This week", "This month", "In less than three months", "In less than six months"],
+    qid3:'What will you use this loan for?',
+    opt3: ["Renovation", "Pay debt", "BUYING A HOUSE with a SIGNED OFFER", "BUYING A HOUSE without a SIGNED OFFER"],
+    qid4:'What is the address of the subject property?',
+    opt4: ["on", "bc"],
+    qid5:'What type of property is this?',
+    opt5: ["Owner Occupied", "Rental", "Second home", "Owner occupied + rental"],
+    qid6:'What kind of property is this?',
+    opt6: ["Single detached", "Condo", "Townhouse", "Duplex", "Triplex", "Cottage", "Other"],
+    qid7:'What is the property value / purchase price?'
+  }
 
   mortgageApplication = new FormGroup ({
-    "borrowAmount": new FormControl(""),
-    "orgName": new FormControl("", ),
+    "borrowAmount": new FormControl("", Validators.required),
+    "timeAmount": new FormControl("", Validators.required),
+    "loanUsage": new FormControl("", Validators.required),
 
     "firstName": new FormControl("", Validators.required),
     "lastName": new FormControl("", Validators.required),
@@ -46,7 +70,9 @@ export class QuesPageComponent implements OnInit {
 
   next()
   {
-    this.display = this.display+1
+    this.box = this.box+1;
+    if(this.box == 4){ this.display++ }
+    if(this.box == 7){ this.display++ }
     this.hd=this.arr[this.display];
   }
 
@@ -57,7 +83,9 @@ export class QuesPageComponent implements OnInit {
   }
   prev()
   {
-    this.display = this.display-1;
+    this.box = this.box-1;
+    if(this.box == 3 ){ this.display-- }
+    if(this.box == 6 ){ this.display-- }
     this.hd=this.arr[this.display];
   }
 
@@ -66,5 +94,4 @@ export class QuesPageComponent implements OnInit {
   ngOnInit(): void {
     this.hd=this.arr[this.display];
 }
-
 }

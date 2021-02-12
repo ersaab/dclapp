@@ -40,12 +40,6 @@
 {
     height: max-content;
 }
-
-.formbtn
-{
-    padding-top: 10px;
-}
-
 .sideLine
 {
     border-top-left-radius: 40px;
@@ -68,15 +62,20 @@
     margin-left: 100px;
     color: black;
     padding-top: 10px;
-    font-size: 35px;
+    font-size: 25px;
 }
 label{
     font-family: 'myriad-pro';
     font-size: 28px;
     font-weight: 500;
 }
-
-
+label.smlabel
+{
+    padding-bottom: 8px;
+    font-family: 'myriad-pro';
+    font-size: 22px;
+    font-weight: 500;
+}
 
 /* dropdown */
 
@@ -85,9 +84,14 @@ input:read-only {
 }
 .ulparent
 {
-    width: 100%;
+    margin: 0%;
+    width: 90%;
     border: none;
     background-color:white !important;
+}
+.spl
+{
+    width: 65% !important;
 }
 
 .dropdown-item
@@ -97,18 +101,26 @@ input:read-only {
     padding: 20px;
     color: #595a5a;
     font-family: 'myriad-light';
+    text-transform: uppercase;
     border-bottom: 0.5px #b1b0b0 solid ;
 }
 .dropdown-item:active
 {
     color:white;
+    text-transform: uppercase;
     background-color: #ffc82d;
 }
 /* dropdown */
 
+.inpfield
+{
+    padding-top: 40px;
+    justify-content: center;
+}
+
 
 /* Slider Range */
-.rangeBox
+.quesBox
 {
     padding-top: 50px;
 }
@@ -122,11 +134,15 @@ input:read-only {
 .inprange
 {
     padding-top: 20px;
+    margin: 0;
     width: 100%;
-    justify-items: center;
-    justify-content: center;
-    align-content: center;
+}
+.inpbar
+{
+    height: 60px !important;
+    width: 100%;
     text-align: center;
+    font-size: 40px;
 }
 .slider {
     -webkit-appearance: none;
@@ -134,11 +150,11 @@ input:read-only {
     height: 5px;
     background: black;
     outline: none;
-  }
-  .slider:hover {
+}
+.slider:hover {
     opacity: none;
-  }
-  .slider::-webkit-slider-thumb {
+}
+.slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 25px;
@@ -149,8 +165,8 @@ input:read-only {
     -webkit-background-clip: padding-box; /* for Safari */
     background-clip: padding-box;
     cursor: pointer;
-  }
-  .slider::-moz-range-thumb {
+}
+.slider::-moz-range-thumb {
     width: 25px;
     border-radius:50%;
     height: 25px;
@@ -159,7 +175,7 @@ input:read-only {
     -webkit-background-clip: padding-box; /* for Safari */
     background-clip: padding-box;
     cursor: pointer;
-  }
+}
 /* Slider Range */
 
 
@@ -168,6 +184,8 @@ select, input
 {
     font-family: 'myriad-light';
     color: #595a5a;
+    width: 100%;
+    text-transform: uppercase;
     border-color:#707070 ;
     border-radius: 18px;
 }
@@ -177,46 +195,68 @@ select:focus, input:focus
     box-shadow:  0 1px 1px rgba(175, 51, 51, 0.075) inset, 0 0 4px #ffc82d;
     outline: 0 none;
 }
+input.sp{
+    height:50px !important;
+    width: 70% !important;
+    font-size: 20px !important;
+}
 .arrow
 {
     background-image:
-      linear-gradient(45deg, transparent 50%, #ff8000 50%),
-      linear-gradient(135deg, #ff8000 50%, transparent 50%),
-      linear-gradient(to right, #ccc, #ccc);
+    linear-gradient(45deg, transparent 50%, #ff8000 50%),
+    linear-gradient(135deg, #ff8000 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
     background-position:
-      calc(100% - 25px) calc(1em + 2px),
-      calc(100% - 15px) calc(1em + 2px),
-      calc(100% - 2.8em) 0.5em;
+    calc(100% - 25px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.8em) 0.5em;
     background-size:
-      9px 9px,
-      10px 9px,
-      0px 0.5em;
+    9px 9px,
+    10px 9px,
+    0px 0.5em;
     background-repeat: no-repeat;
 }
 
 .arrow:focus {
     background-image:
-      linear-gradient(45deg, #ff8000 50%, transparent 50%),
-      linear-gradient(135deg, transparent 50%, #ff8000 50%),
-      linear-gradient(to left, #ccc, #ccc);
+    linear-gradient(45deg, #ff8000 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, #ff8000 50%),
+    linear-gradient(to left, #ccc, #ccc);
     background-position:
-      calc(100% - 15px) 1em,
-      calc(100% - 25px) 1em,
-      calc(100% - 2.5em) 0.5em;
+    calc(100% - 15px) 1em,
+    calc(100% - 25px) 1em,
+    calc(100% - 2.5em) 0.5em;
     background-size:
-      10px 9px,
-      9px 9px,
-      1px 1.5em;
+    10px 9px,
+    9px 9px,
+    1px 1.5em;
     background-repeat: no-repeat;
     border-color:#ffc82d;
     outline: 0;
-  }
+}
+/* Select with Arrow */
 
+/* Upload Box */
+.uploadRow{
+    padding-top: 50px;
+}
+.uploadBox
+{
+    height: 300px;
+    width: 350px;
+    border: 1px #3556fd solid;
+    border-radius: 25px;
+}
+/* Upload Box */
 
-  /* Select with Arrow */
-  
-
-.prevbtn, .nextbtn, .subbtn
+/* Buttons */
+.formbtn
+{
+    padding-top: 20px;
+    margin: 0%;
+    justify-content: center;
+}
+.prevbtn, .nextbtn, .subbtn, .skipi
 {
     font-family: 'myriad-pro';
     font-size: 16px;
@@ -232,6 +272,16 @@ select:focus, input:focus
 {
     border-color:#ff8000;
     background-color:#ff8000;
+}
+.skipi{
+    background-color: #2fccdd;
+    border-color: #2fccdd;
+}
+.skipi:focus, .skipi:active
+{
+    background-color: #2fccdd !important;
+    border-color: #2fccdd !important;
+    box-shadow: none !important;
 }
 .prevbtn:active, .prevbtn:focus
 {
@@ -250,20 +300,20 @@ select:focus, input:focus
     background-color: #3556fc !important;
     box-shadow: none !important;
 }
-
+/* Buttons */
 
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {}
-  
-  /* Small devices (portrait tablets and large phones, 600px and up) */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {}
 
-  /* Medium devices (landscape tablets, 768px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {}
-  
-  /* Large devices (laptops/desktops, 992px and up) */
+
+/* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {}
-  
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {}

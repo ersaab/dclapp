@@ -87,7 +87,6 @@
                         </div>
                         <div class="second" *ngIf="display == 2">
                             <div class="row">
-                                
                                 <div class="form-group col-sm-8">
                                     <label for="address">Address</label>
                                     <input type="text" formControlName="address" class="form-control" id="address" placeholder="MAIN STREET">
@@ -307,12 +306,15 @@
                     </div>
                     <div class="col-sm-1"></div>
                 </div>
-                <div class="row formbtn">
-                    <div class="text-center">
+                <div class="row formbtn ">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4 text-center">
+                        <button class="btn btn-sm btn-danger prevbtn" *ngIf="display == 1" [routerLink]="['/Lender']" >Back</button>
                         <button class="btn btn-sm btn-danger prevbtn" *ngIf="display != 1" (click)="prev()" >Back</button> &nbsp;
                         <button class="btn btn-sm btn-primary nextbtn " *ngIf="display != 5" (click)="next()" >Next</button>
                         <button class="btn btn-sm btn-success subbtn" *ngIf="display == 5"  [disabled]="!lenderForm.valid" >Finish</button>
                     </div>
+                    <div class="col-sm-4"></div>
                 </div>
                 </form>          
             </div>
