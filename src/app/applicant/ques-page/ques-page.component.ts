@@ -68,14 +68,19 @@ export class QuesPageComponent implements OnInit {
     qid10: 'What is your current email address?',
     qid11: 'What is your current phone number?',
     qid12: 'Which contact method do you prefer?',
-    qid13: 'Do we have consent to post your deal to the lenders marketplace to get the best rate for you?'
+    qid13: 'Do we have consent to post your deal to the lenders marketplace to get the best rate for you?',
+    qid14: 'Create an account and save your application progress',
+    qid15: 'Choose a password',
+    qid16: 'Confirm your password',
+    qid17: 'What is your name?',
+    qid18: 'What is your date of birth?',
   }
 
   mortgageApplication = new FormGroup ({
     "applicantBorrowAmount": new FormControl("", Validators.required),
     "applicantTimeAmount": new FormControl("", Validators.required),
     "applicantLoanUsage": new FormControl("", Validators.required),
-    
+
     "applicantAddress": new FormControl("", Validators.required),
     "applicantUnitNo": new FormControl("", Validators.required),
     "applicantCityName": new FormControl("", Validators.required),
@@ -92,15 +97,19 @@ export class QuesPageComponent implements OnInit {
     "applicantEmail": new FormControl("", Validators.required),
     
     
-    "firstName": new FormControl("", Validators.required),
-    "lastName": new FormControl("", Validators.required),
-    "altemail": new FormControl("", Validators.required),
-    "unitNo": new FormControl("", Validators.required),
-    "ltvRisk": new FormControl("", Validators.required),
-    "prefRate": new FormControl("", Validators.required),
-    "prefTerm": new FormControl("", Validators.required),
-    "prefPayback": new FormControl("", Validators.required),
-    "termType": new FormControl("", Validators.required)
+    "applicantContactMethod": new FormControl("", Validators.required),
+    "applicantConcentMarket": new FormControl("", Validators.required),
+    "applicantPassword": new FormControl("", Validators.required),
+    "applicantConfirmPassword": new FormControl("", Validators.required),
+
+    "applicantFirstName": new FormControl("", Validators.required),
+    "applicantLastName": new FormControl("", Validators.required),
+    "applicantMiddleName": new FormControl("", Validators.required),
+
+    "applicantBirthMonth": new FormControl("", Validators.required),
+    "applicantBirthDate": new FormControl("", Validators.required),
+    "applicantBirthYear": new FormControl("", Validators.required),
+    "": new FormControl("", Validators.required)
   });
 
   uploadBtn()
