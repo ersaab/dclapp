@@ -15,7 +15,7 @@
     <div class="col-sm-11 fullbase">
         <div class="row lendHead">
             <div class="col-sm-6">
-                <p class="pageheading"><img class="img-fluid card-img" src="" alt="pic"> {{hd}} </p>
+                <p class="pageheading"><img class="img-fluid card-img appInfo" src= {{hd.path}} alt="pic"> {{hd.head}} </p>
             </div>
             <div class="col-sm-6 text-center">
                 <app-navbtns></app-navbtns>
@@ -26,195 +26,333 @@
             <div class="col-sm-10 contentBox">
                 <form [formGroup]="mortgageApplication"  (ngSubmit)="submit()">
                 <div class="row formfield">
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-10 text-center">
-                        <!--Content Here-->
-                        <div class="row 1st" *ngIf="display ==  1 && box == 1" >
-                        <div class="form-group">
-                            <label for="borrowAmount"> {{quesData.qid1}} </label>
-                            <div class="row quesBox">
-                                <input type="range" class="form-control-range slider" 
-                                formControlName = "borrowAmount" 
-                                [value]="mortgageApplication.controls['borrowAmount'].value"
-                                min="100" 
-                                step="100" 
-                                max="2000000" >
-                                <p class="rangesides"> <span class="float-left">$0</span>  <span class="float-right">$2M+</span>  <p>
-                                <div class="row inprange">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-6">
-                                        <input type="number" 
-                                            class="form-control inpbar" 
-                                            formControlName="borrowAmount" 
-                                            [value]="mortgageApplication.controls['borrowAmount'].value" 
-                                            min="1" step="1" max="2000000">
-                                    </div>
-                                    <div class="col-sm-3"></div>
-                                </div>
-                            </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <img src="./assets/pics/equity.png" class="headImg" alt="Equity Application">
                         </div>
-                        </div>
-                        <div class="row 2nd" *ngIf="display ==  1 && box == 2" >
+                    </div>
+                    <div class="row quesDiv">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10 text-center">
+                            <!--Content Here-->
+                             <div class="row 1st" *ngIf="display ==  1 && box == 1" >
                             <div class="form-group">
-                                <div ngbDropdown #dropdown="ngbDropdown" >
-                                    <label for="timeAmount"> {{quesData.qid2}} </label>
-                                    <div class="row inpfield">
-                                        <input 
-                                            type="text"
-                                            class="form-control arrow dropdown-input sp"
-                                            data-toggle="timeAmount" 
-                                            [value]="mortgageApplication.controls['timeAmount']?.value" 
-                                            ngbDropdownToggle
-                                            placeholder="CHOOSE ONE"
-                                            readonly> 
-                                        <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
-                                            <li  *ngFor="let item of quesData.opt2" 
-                                                ngbDropdownItem
-                                                (click)="mortgageApplication.controls['timeAmount'].setValue(item)"
-                                                class="dropdown-item">
-                                                <span>{{item}}</span>
-                                            </li>
-                                        </ul>
+                                <label for="applicantBorrowAmount"> {{quesData.qid1}} </label>
+                                <div class="row quesBox">
+                                    <input type="range" class="form-control-range slider" 
+                                    formControlName = "applicantBorrowAmount" 
+                                    [value]="mortgageApplication.controls['applicantBorrowAmount'].value"
+                                    min="100" 
+                                    step="100" 
+                                    max="2000000" >
+                                    <p class="rangesides"> <span class="float-left">$0</span>  <span class="float-right">$2M+</span>  <p>
+                                    <div class="row inprange">
+                                        <div class="col-sm-3"></div>
+                                        <div class="col-sm-6">
+                                            <input type="number" 
+                                                class="form-control inpbar" 
+                                                formControlName="applicantBorrowAmount" 
+                                                [value]="mortgageApplication.controls['applicantBorrowAmount'].value" 
+                                                min="1" step="1" max="2000000">
+                                        </div>
+                                        <div class="col-sm-3"></div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="3rd row"*ngIf="display ==  1 && box == 3" >
-                            <div class="form-group">
-                                <div ngbDropdown #dropdown="ngbDropdown" >
-                                    <label for="loanUsage"> {{quesData.qid3}} </label>
-                                    <div class="row inpfield">
-                                        <input 
-                                            type="text"
-                                            class="form-control arrow dropdown-input sp"
-                                            data-toggle="loanUsage" 
-                                            [value]="mortgageApplication.controls['loanUsage']?.value" 
-                                            ngbDropdownToggle
-                                            placeholder="CHOOSE ONE"
-                                            readonly> 
-                                        <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
-                                            <li  *ngFor="let item of quesData.opt3" 
-                                                ngbDropdownItem
-                                                (click)="mortgageApplication.controls['loanUsage'].setValue(item)"
-                                                class="dropdown-item">
-                                                <span>{{item}}</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-                        <div class="4th row"*ngIf="display ==  2 && box == 4" >
-                            <div class="col-sm-12 uploadRow"></div>
-                            <div class="col-sm-3"></div>
-                            <div class="col-sm-6 uploadBox">
-                                <label for=" form-control image">
-                                    <input type="file" name="image" id="image" style="display:none;"/>
-                                    <img src="IMAGE URL" />
-                                 </label>
-                            </div>
-                            <div class="col-sm-3"></div>
-                        </div>
-                        <div class="5th row"*ngIf="display ==  2 && box == 5" >
-                            <label for="address"> {{quesData.qid4}} </label>
-                            <div class="row inpfield">
-                                <div class="form-group col-sm-9">
-                                    <input type="text" formControlName="address" class="form-control" placeholder="street Address">
-                                </div>
-                                <div class="form-group col-sm-3">
-                                    <input type="number" formControlName="unitNo" class="form-control" placeholder="Unit Number">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-1"></div>
-                                <div class="form-group col-sm-3">
-                                    <input type="text" formControlName="cityName" placeholder="city" class="form-control" >
-                                </div>
-                                <div class="form-group col-sm-4">
+                            <div class="row 2nd" *ngIf="display ==  1 && box == 2" >
+                                <div class="form-group">
                                     <div ngbDropdown #dropdown="ngbDropdown" >
-                                        <input 
-                                            type="text"
-                                            class="form-control arrow dropdown-input"
-                                            data-toggle="stateName" 
-                                            [value]="mortgageApplication.controls['stateName']?.value" 
-                                            ngbDropdownToggle
-                                            placeholder="Province"
-                                            readonly> 
-                                        <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
-                                            <li *ngFor="let item of quesData.opt3" 
-                                                ngbDropdownItem
-                                                (click)="mortgageApplication.controls['stateName'].setValue(item)"
-                                                class="dropdown-item">
-                                                <span>{{item}}</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="form-group col-sm-3">
-                                <input formControlName="zipCode" type="text" placeholder="postal code" class="form-control">
-                                </div>
-                                <div class="col-sm-1"></div>
-                            </div>
-                        </div>
-                        <div class="6th row"*ngIf="display ==  2 && box == 6" >
-                           <div class="formfield">
-                               <div class="row">
-                                   <div class="col-sm-5">
-                                    <div class="form-group">
-                                        <label class="smlabel"> {{quesData.qid5}} </label>
-                                        <div ngbDropdown #dropdown="ngbDropdown" >
+                                        <label for="applicantTimeAmount"> {{quesData.qid2}} </label>
+                                        <div class="row inpfield">
                                             <input 
                                                 type="text"
-                                                class="form-control arrow dropdown-input"
-                                                data-toggle="stateName" 
-                                                [value]="mortgageApplication.controls['stateName']?.value" 
+                                                class="form-control arrow dropdown-input sp"
+                                                data-toggle="applicantTimeAmount" 
+                                                [value]="mortgageApplication.controls['applicantTimeAmount']?.value" 
                                                 ngbDropdownToggle
-                                                placeholder="Please Select One"
+                                                placeholder="CHOOSE ONE"
                                                 readonly> 
-                                            <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
-                                                <li *ngFor="let item of quesData.opt5" 
+                                            <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                <li  *ngFor="let item of quesData.opt2" 
                                                     ngbDropdownItem
-                                                    (click)="mortgageApplication.controls['stateName'].setValue(item)"
+                                                    (click)="mortgageApplication.controls['applicantTimeAmount'].setValue(item)"
                                                     class="dropdown-item">
                                                     <span>{{item}}</span>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                   </div>
-                                   <div class="col-sm-2"></div>
-                                   <div class="col-sm-5">
-                                    <div class="form-group">
-                                        <label class="smlabel"> {{quesData.qid6}} </label>
-                                        <div ngbDropdown #dropdown="ngbDropdown" >
+                                </div>
+                            </div>
+                            <div class="3rd row" *ngIf="display ==  1 && box == 3" >
+                                <div class="form-group">
+                                    <div ngbDropdown #dropdown="ngbDropdown" >
+                                        <label for="applicantLoanUsage"> {{quesData.qid3}} </label>
+                                        <div class="row inpfield">
                                             <input 
                                                 type="text"
-                                                class="form-control arrow dropdown-input"
-                                                data-toggle="stateName" 
-                                                [value]="mortgageApplication.controls['stateName']?.value" 
+                                                class="form-control arrow dropdown-input sp"
+                                                data-toggle="applicantLoanUsage" 
+                                                [value]="mortgageApplication.controls['applicantLoanUsage']?.value" 
                                                 ngbDropdownToggle
-                                                placeholder="Please Select One"
+                                                placeholder="CHOOSE ONE"
                                                 readonly> 
-                                            <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
-                                                <li *ngFor="let item of quesData.opt6" 
+                                            <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                <li  *ngFor="let item of quesData.opt3" 
                                                     ngbDropdownItem
-                                                    (click)="mortgageApplication.controls['stateName'].setValue(item)"
+                                                    (click)="mortgageApplication.controls['applicantLoanUsage'].setValue(item)"
                                                     class="dropdown-item">
                                                     <span>{{item}}</span>
                                                 </li>
                                             </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="4th row" *ngIf="display ==  2 && box == 4" > <!--  2, 4 -->
+                                <div class="row uploadRow">
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-8 uploadBox ">
+                                        <div class="cardBox">
+                                                <a href="#"  
+                                                   class="btn btn-upload"
+                                                   (click)='uploadBtn()'>
+                                                   <img class="card-img-top" src="./assets/pics/uploadPic.png" alt="Card image cap"><br>
+                                                   Upload a photo of the subject property</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1"></div>
+                                </div>
+                            </div>
+                            <div class="5th row" *ngIf="display ==  2 && box == 5" >
+                                <label for="address"> {{quesData.qid4}} </label>
+                                <div class="row inpfield">
+                                    <div class="form-group col-sm-9">
+                                        <input type="text" formControlName="applicantAddress" class="form-control" placeholder="street Address">
+                                    </div>
+                                    <div class="form-group col-sm-3">
+                                        <input type="number" formControlName="applicantUnitNo" class="form-control" placeholder="Unit Number">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-1"></div>
+                                    <div class="form-group col-sm-3">
+                                        <input type="text" formControlName="applicantCityName" placeholder="city" class="form-control" >
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <div ngbDropdown #dropdown="ngbDropdown" >
+                                            <input 
+                                                type="text"
+                                                class="form-control arrow dropdown-input"
+                                                data-toggle="applicantProvince" 
+                                                [value]="mortgageApplication.controls['applicantProvince']?.value" 
+                                                ngbDropdownToggle
+                                                placeholder="Province"
+                                                readonly> 
+                                            <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                <li *ngFor="let item of quesData.opt3" 
+                                                    ngbDropdownItem
+                                                    (click)="mortgageApplication.controls['applicantProvince'].setValue(item)"
+                                                    class="dropdown-item">
+                                                    <span>{{item}}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-3">
+                                    <input formControlName="applicantZipCode" type="text" placeholder="postal code" class="form-control">
+                                    </div>
+                                    <div class="col-sm-1"></div>
+                                </div>
+                            </div>
+                            <div class="6th row" *ngIf="display ==  2 && box == 6" >
+                               <div class="formfield">
+                                   <div class="row kindType">
+                                       <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label for="applicantPropertyType" class="smlabel"> {{quesData.qid5}} </label>
+                                            <div ngbDropdown #dropdown="ngbDropdown" >
+                                                <input 
+                                                    type="text"
+                                                    class="form-control arrow dropdown-input"
+                                                    data-toggle="applicantPropertyType" 
+                                                    [value]="mortgageApplication.controls['applicantPropertyType']?.value" 
+                                                    ngbDropdownToggle
+                                                    placeholder="Please Select One"
+                                                    readonly> 
+                                                <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                    <li *ngFor="let item of quesData.opt5" 
+                                                        ngbDropdownItem
+                                                        (click)="mortgageApplication.controls['applicantPropertyType'].setValue(item)"
+                                                        class="dropdown-item">
+                                                        <span>{{item}}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                       </div>
+                                       <div class="col-sm-2"></div>
+                                       <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label for="applicantPropertyKind" class="smlabel"> {{quesData.qid6}} </label>
+                                            <div ngbDropdown #dropdown="ngbDropdown" >
+                                                <input 
+                                                    type="text"
+                                                    class="form-control arrow dropdown-input"
+                                                    data-toggle="applicantPropertyKind" 
+                                                    [value]="mortgageApplication.controls['applicantPropertyKind']?.value" 
+                                                    ngbDropdownToggle
+                                                    placeholder="Please Select One"
+                                                    readonly> 
+                                                <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                    <li *ngFor="let item of quesData.opt6" 
+                                                        ngbDropdownItem
+                                                        (click)="mortgageApplication.controls['applicantPropertyKind'].setValue(item)"
+                                                        class="dropdown-item">
+                                                        <span>{{item}}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                       </div>
+                                   </div>
+                                   <div class="row valueSlider">
+                                    <div class="form-group">
+                                        <div class="row quesBox">
+                                            <label class="smlabel" for="applicantPropValue"> {{quesData.qid7}} </label>
+                                            <input type="range" 
+                                            class="form-control-range slider" 
+                                            formControlName = "applicantPropValue" 
+                                            [value]="mortgageApplication.controls['applicantPropValue'].value"
+                                            min="100" 
+                                            step="100" 
+                                            max="2000000" >
+                                            <p class="rangesides"> <span class="float-left">$0</span>  <span class="float-right">$2M+</span>  <p>
+                                            <div class="row ">
+                                                <div class="col-sm-3"></div>
+                                                <div class="col-sm-6">
+                                                    <input type="number" 
+                                                        class="form-control" 
+                                                        formControlName="applicantPropValue" 
+                                                        [value]="mortgageApplication.controls['applicantPropValue'].value" 
+                                                        min="1" step="1" max="2000000">
+                                                </div>
+                                                <div class="col-sm-3"></div>
+                                            </div>
                                         </div>
                                     </div>
                                    </div>
                                </div>
-                               <div class="row"></div>
-                           </div>
+                            </div>
+                            <div class="7th row" *ngIf="display ==  3 && box == 7" >
+                                <div class="form-group">
+                                    <label for="applicantMortBal"> {{quesData.qid8}} </label>
+                                    <div class="row quesBox">
+                                        <input type="range" class="form-control-range slider" 
+                                        formControlName = "applicantMortBal" 
+                                        [value]="mortgageApplication.controls['applicantMortBal'].value"
+                                        min="100" 
+                                        step="100" 
+                                        max="2000000" >
+                                        <p class="rangesides"> <span class="float-left">$0</span>  <span class="float-right">$2M+</span>  <p>
+                                        <div class="row inprange">
+                                            <div class="col-sm-3"></div>
+                                            <div class="col-sm-6">
+                                                <input type="number" 
+                                                    class="form-control inpbar" 
+                                                    formControlName="applicantMortBal" 
+                                                    [value]="mortgageApplication.controls['applicantMortBal'].value" 
+                                                    min="1" step="1" max="2000000">
+                                            </div>
+                                            <div class="col-sm-3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </div>
+                            <div class="8th row" *ngIf="display ==  3 && box == 8" >
+                            </div>
+                            <div class="9th row" *ngIf="display ==  4 && box == 9" >
+                                <div class="formfield">
+                                    <div class="row kindType">
+                                         <div class="form-group col-sm-6">
+                                             <label for="applicantEmail" class="smlabel"> {{quesData.qid10}} </label>
+                                             <input type="email" formControlName="applicantEmail" class="form-control" placeholder="">
+                                         </div>
+                                         <div class="form-group col-sm-6">
+                                             <label for="applicantPhno" class="smlabel"> {{quesData.qid11}} </label>
+                                             <input type="number" formControlName="applicantPhno" class="form-control" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="row radioContactMethod">
+                                     <div class="form-group">
+                                        <label for="applicantContactMethod" class="smlabel"> {{quesData.qid12}} </label>
+                                        <div class="row">
+                                            <div class="form-check form-check-inline">
+                                                <input type="radio" 
+                                                       formControlName="applicantContactMethod" 
+                                                       id="Email"
+                                                       [class.active]="mortgageApplication.controls['applicantContactMethod']" 
+                                                       value="Email">
+                                                <label for="Email">
+                                                  EMAIL
+                                                </label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input type="radio" 
+                                                       formControlName="applicantContactMethod"
+                                                       [class.active]="mortgageApplication.controls['applicantContactMethod']"
+                                                       value="Phone">
+                                                <label for="Phone">
+                                                  PHONE
+                                                </label>
+                                              </div>
+                                        </div>
+                                     </div>
+                                    </div>
+                                     <div class="row radioConcentMarket">
+                                         <div class="form-group">
+                                            <label for="applicantConcentMarket" class="smlabel"> {{quesData.qid13}} </label>
+                                            <div class="row">
+                                                <div class="form-check form-check-inline">
+                                                    <input type="radio" 
+                                                           formControlName="applicantConcentMarket" 
+                                                           [class.active]="mortgageApplication.controls['radioConcentMarket']"
+                                                           value="Yes">
+                                                    <label for="Yes">
+                                                      YES
+                                                    </label>
+                                                  </div>
+                                                  <div class="form-check form-check-inline">
+                                                    <input type="radio" 
+                                                           formControlName="applicantConcentMarket"
+                                                           [class.active]="mortgageApplication.controls['radioConcentMarket']"
+                                                           value="No">
+                                                    <label for="No">
+                                                      NO
+                                                    </label>
+                                                  </div>
+                                            </div>
+                                         </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="10th row" *ngIf="display == 4 && box == 10" >
+                            </div>
+                            <div class="11th row" *ngIf="display == 5 && box == 11" >
+                            </div>
+                            <div class="12th row" *ngIf="display == 6 && box == 12" >
+                            </div>
+                            <div class="13th row" *ngIf="display == 7 && box == 13" >
+                            </div>
+    
+    
+    
+    
                         </div>
-
-
-
+                        <div class="col-sm-1"></div>
                     </div>
-                    <div class="col-sm-1"></div>
                 </div>
                 <div class="row formbtn ">
                     <div class="col-sm-2"></div>
@@ -222,8 +360,8 @@
                         <button class="btn btn-sm btn-danger prevbtn" *ngIf="box == 1" [routerLink]="['/Applicant']" >Back</button>
                         <button class="btn btn-sm btn-danger prevbtn" *ngIf="box != 1" (click)="prev()" >Back</button> &nbsp;
                         <button class="btn btn-sm btn-danger skipi" *ngIf="box == 4" (click)="next()" >Skip</button> &nbsp;
-                        <button class="btn btn-sm btn-primary nextbtn " *ngIf="box != 10" (click)="next()" >Next</button>
-                        <button class="btn btn-sm btn-success subbtn" *ngIf="box == 10"  [disabled]="!mortgageApplication.valid" >Finish</button>
+                        <button class="btn btn-sm btn-primary nextbtn " *ngIf="box != 13" (click)="next()" >Next</button>
+                        <button class="btn btn-sm btn-success subbtn" *ngIf="box == 13"  [disabled]="!mortgageApplication.valid" >Finish</button>
                     </div>
                     <div class="col-sm-2"></div>
                 </div>

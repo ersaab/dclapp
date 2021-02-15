@@ -11,54 +11,91 @@ export class QuesPageComponent implements OnInit {
   display:number = 1;
   box:number = 1;
   hd:any;
+
   arr:any = ["", 
-             "1 - Loan Information", 
-             "2 - Subject Property Information", 
-             "3 - Current Mortgage information", 
-             "4 - Contact Information",
-             "5 - Applicant Information",
-             "6 - Income Information",
-             "7 - Add a Co-Applicant"]
+            {
+              id:1,
+              head: "1 - Loan Information",
+              path: "./assets/pics/applicant/applicantLoanInformation.png"
+            },
+            {
+              id:2,
+              head: "2 - Subject Property Information",
+              path: "./assets/pics/applicant/applicantPropertyInformation.png"
+            }, 
+            {
+              id:3,
+              head: "3 - Current Mortgage information",
+              path: "./assets/pics/applicant/applicantMortgageInformation.png"
+            },
+            {
+              id:4,
+              head: "4 - Contact Information",
+              path: "./assets/pics/applicant/applicantContactInfromation.png"
+            },
+            {
+              id:5,
+              head: "Applicant Information",
+              path: "./assets/pics/applicant/applicantInformation.png"
+            },
+            {
+              id:6,
+              head: "6 - Income Information",
+              path: "./assets/pics/applicant/applicantIncomeInfromation.png"
+            },
+            {
+              id:7,
+              head: "7 - Add a Co-Applicant",
+              path: "./assets/pics/applicant/applicantCoApplicant.png"
+            },
+            ]
 
   quesData = 
-  { 
-    qid1:'How much Money are you looking to Borrow?',
-    qid2:'When do you need this money in-hand?',
+  {
+    qid1: 'How much Money are you looking to Borrow?',
+    qid2: 'When do you need this money in-hand?',
     opt2: ["This week", "This month", "In less than three months", "In less than six months"],
-    qid3:'What will you use this loan for?',
+    qid3: 'What will you use this loan for?',
     opt3: ["Renovation", "Pay debt", "BUYING A HOUSE with a SIGNED OFFER", "BUYING A HOUSE without a SIGNED OFFER"],
-    qid4:'What is the address of the subject property?',
+    qid4: 'What is the address of the subject property?',
     opt4: ["on", "bc"],
-    qid5:'What type of property is this?',
+    qid5: 'What type of property is this?',
     opt5: ["Owner Occupied", "Rental", "Second home", "Owner occupied + rental"],
-    qid6:'What kind of property is this?',
+    qid6: 'What kind of property is this?',
     opt6: ["Single detached", "Condo", "Townhouse", "Duplex", "Triplex", "Cottage", "Other"],
-    qid7:'What is the property value / purchase price?'
+    qid7: 'What is the property value / purchase price?',
+    qid8: 'What is the remaining balance on your current mortgage?',
+    qid10: 'What is your current email address?',
+    qid11: 'What is your current phone number?',
+    qid12: 'Which contact method do you prefer?',
+    qid13: 'Do we have consent to post your deal to the lenders marketplace to get the best rate for you?'
   }
 
   mortgageApplication = new FormGroup ({
-    "borrowAmount": new FormControl("", Validators.required),
-    "timeAmount": new FormControl("", Validators.required),
-    "loanUsage": new FormControl("", Validators.required),
-
+    "applicantBorrowAmount": new FormControl("", Validators.required),
+    "applicantTimeAmount": new FormControl("", Validators.required),
+    "applicantLoanUsage": new FormControl("", Validators.required),
+    
+    "applicantAddress": new FormControl("", Validators.required),
+    "applicantUnitNo": new FormControl("", Validators.required),
+    "applicantCityName": new FormControl("", Validators.required),
+    "applicantProvince": new FormControl("", Validators.required),
+    "applicantZipCode": new FormControl("", Validators.required),
+    
+    "applicantPropertyKind": new FormControl("", Validators.required),
+    "applicantPropertyType": new FormControl("", Validators.required),
+    "applicantPropValue": new FormControl("", Validators.required),
+    
+    "applicantMortBal": new FormControl("", Validators.required),
+    
+    "applicantPhno": new FormControl("", Validators.required),
+    "applicantEmail": new FormControl("", Validators.required),
+    
+    
     "firstName": new FormControl("", Validators.required),
     "lastName": new FormControl("", Validators.required),
-    "phno": new FormControl("", Validators.required),
-    "email": new FormControl("", Validators.required),
     "altemail": new FormControl("", Validators.required),
     "unitNo": new FormControl("", Validators.required),
-
-    "streetName": new FormControl("", Validators.required),
-    "cityName": new FormControl("", Validators.required),
-    "stateName": new FormControl("", Validators.required),
-    "countryName": new FormControl("", Validators.required),
-    "zipCode": new FormControl("", Validators.required),
-
-    "riskAppetite": new FormControl("", Validators.required),
-    "investAmount": new FormControl("", Validators.required),
-    "knowledge": new FormControl("", Validators.required),
-    "exp": new FormControl("", Validators.required),
-
     "ltvRisk": new FormControl("", Validators.required),
     "prefRate": new FormControl("", Validators.required),
     "prefTerm": new FormControl("", Validators.required),
@@ -66,13 +103,15 @@ export class QuesPageComponent implements OnInit {
     "termType": new FormControl("", Validators.required)
   });
 
+  uploadBtn()
+  {
 
+  }
 
   next()
   {
     this.box = this.box+1;
-    if(this.box == 4){ this.display++ }
-    if(this.box == 7){ this.display++ }
+    if(this.box == 4 || this.box == 7 || this.box == 9 || this.box == 11 || this.box == 12 || this.box == 13){ this.display++ }
     this.hd=this.arr[this.display];
   }
 
@@ -84,8 +123,7 @@ export class QuesPageComponent implements OnInit {
   prev()
   {
     this.box = this.box-1;
-    if(this.box == 3 ){ this.display-- }
-    if(this.box == 6 ){ this.display-- }
+    if(this.box == 3 || this.box == 6 || this.box == 8 || this.box == 10 || this.box == 11 || this.box == 12){ this.display-- }
     this.hd=this.arr[this.display];
   }
 

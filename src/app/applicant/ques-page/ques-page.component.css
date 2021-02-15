@@ -29,7 +29,7 @@
 }
 .contentBox
 {
-    padding-top: 50px;
+    padding-top: 10px;
     background: #FFFFFF 0% 0% no-repeat padding-box;;
     border-radius: 28px;
     box-shadow: 5px 10px 6px #00000029;
@@ -39,6 +39,16 @@
 .formfield
 {
     height: max-content;
+}
+.headImg
+{
+    width: 350px;
+    height: 75px;
+    image-resolution: 100%;
+}
+.quesDiv
+{
+    padding-top: 20px;
 }
 .sideLine
 {
@@ -64,21 +74,25 @@
     padding-top: 10px;
     font-size: 25px;
 }
+.appInfo
+{
+   width: 60px;
+   height: 60px;
+}
 label{
     font-family: 'myriad-pro';
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 500;
 }
 label.smlabel
 {
-    padding-bottom: 8px;
+    padding-bottom: 10px;
     font-family: 'myriad-pro';
     font-size: 22px;
     font-weight: 500;
 }
 
 /* dropdown */
-
 input:read-only {
     background-color: transparent;
 }
@@ -93,7 +107,6 @@ input:read-only {
 {
     width: 65% !important;
 }
-
 .dropdown-item
 {
     height: 50px;
@@ -114,15 +127,15 @@ input:read-only {
 
 .inpfield
 {
-    padding-top: 40px;
+    padding-top: 30px;
     justify-content: center;
 }
 
 
-/* Slider Range */
+/* Slider & Range Box */
 .quesBox
 {
-    padding-top: 50px;
+    padding-top: 30px;
 }
 .rangesides
 {
@@ -139,10 +152,10 @@ input:read-only {
 }
 .inpbar
 {
-    height: 60px !important;
+    height: 50px !important;
     width: 100%;
     text-align: center;
-    font-size: 40px;
+    font-size: 35px;
 }
 .slider {
     -webkit-appearance: none;
@@ -176,8 +189,19 @@ input:read-only {
     background-clip: padding-box;
     cursor: pointer;
 }
-/* Slider Range */
+/* Slider & Range Box */
 
+/* Radio button*/
+input.radio{
+    background-color: tomato !important;
+    
+}
+.radio:active
+{
+    color: #3556fd !important;
+}
+
+/* Radio button*/
 
 /* Select with Arrow */
 select, input
@@ -216,7 +240,6 @@ input.sp{
     0px 0.5em;
     background-repeat: no-repeat;
 }
-
 .arrow:focus {
     background-image:
     linear-gradient(45deg, #ff8000 50%, transparent 50%),
@@ -238,21 +261,41 @@ input.sp{
 
 /* Upload Box */
 .uploadRow{
-    padding-top: 50px;
+   
 }
 .uploadBox
 {
-    height: 300px;
-    width: 350px;
-    border: 1px #3556fd solid;
+   
+}
+.cardBox
+{
+    height: 280px;
+    border: 2px #3556fd solid;
     border-radius: 25px;
+}
+.card-img-top
+{
+    padding-top: 20px;
+    width: 170px;
+    height: 210px;
+}
+.btn-upload
+{
+    text-transform: uppercase;
+    color: #3556fd;
+}
+.btn-upload:focus, .btn-upload:active, .btn-upload:hover
+{
+    opacity: 1;
+    border-radius: 50px;
+    box-shadow: none;
 }
 /* Upload Box */
 
 /* Buttons */
 .formbtn
 {
-    padding-top: 20px;
+    padding-top: 15px;
     margin: 0%;
     justify-content: center;
 }
