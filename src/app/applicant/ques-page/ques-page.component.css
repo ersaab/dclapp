@@ -33,8 +33,6 @@
     background: #FFFFFF 0% 0% no-repeat padding-box;;
     border-radius: 28px;
     box-shadow: 5px 10px 6px #00000029;
-    width: 100%;
-    opacity: 1;
 }
 .formfield
 {
@@ -48,7 +46,13 @@
 }
 .quesDiv
 {
+    margin: 0%;
     padding-top: 20px;
+}
+.quesfield
+{
+    justify-content: center;
+    margin-left: 15px;
 }
 .sideLine
 {
@@ -63,26 +67,35 @@
     font-weight: bolder;
     border-radius: 80px;
     margin-bottom: 10px;
-    border-color: #f4f5f6;
-    background-color: #f4f5f6!important;
+    border-color: #f2f2f2;
+    background-color: #f2f2f2!important;
 }
 .pageheading
 {
     font-family: 'myriad-light';
     margin-left: 100px;
     color: black;
-    padding-top: 10px;
-    font-size: 25px;
+    padding-top: 0px;
+    font-size: 28px;
 }
 .appInfo
 {
-   width: 60px;
+   width: 50px;
    height: 60px;
+}
+.arrowImg
+{
+    height: 15px;
+    width: 15px;
 }
 label{
     font-family: 'myriad-pro';
     font-size: 26px;
     font-weight: 500;
+}
+label.regLarge
+{
+    font-size: 36px;
 }
 label.smlabel
 {
@@ -95,24 +108,39 @@ label.labelLarge
 {
     font-size: 48px;
 }
+.smLightLabel
+{
+    font-family: 'myriad-light';
+    font-size: 16px;
+}
 /* Applicant Details */
 .largeHead
 {
     padding-top: 18px;
 }
-.applicantNameDetails
+.padding50
 {
+    margin: 0%;
     padding-top: 50px;
 }
 .applicantLastName
 {
     padding-top: 10px;
 }
-.applicantDob
+.checkBoxDiv
 {
-    padding-top: 50px;
-    margin: 0%;
+    padding-top: 15px;
 }
+.checkBox
+{
+    width: 35px;
+    height: 15px;
+}
+.checkBox:focus
+{
+    box-shadow: none;
+}
+
 /* Applicant Details */
 
 
@@ -329,6 +357,7 @@ input.sp{
 /* Buttons */
 .formbtn
 {
+    margin: 0%;
     padding-top: 15px;
     justify-content: center;
 }

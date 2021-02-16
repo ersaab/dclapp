@@ -12,8 +12,7 @@ export class QuesPageComponent implements OnInit {
   box:number = 1;
   hd:any;
 
-  arr:any = ["", 
-            {
+  arr:any = [{id:0}, {
               id:1,
               head: "1 - Loan Information",
               path: "./assets/pics/applicant/applicantLoanInformation.png"
@@ -47,8 +46,7 @@ export class QuesPageComponent implements OnInit {
               id:7,
               head: "7 - Add a Co-Applicant",
               path: "./assets/pics/applicant/applicantCoApplicant.png"
-            },
-            ]
+            }]
 
   quesData = 
   {
@@ -72,8 +70,26 @@ export class QuesPageComponent implements OnInit {
     qid14: 'Create an account and save your application progress',
     qid15: 'Choose a password',
     qid16: 'Confirm your password',
+
     qid17: 'What is your name?',
     qid18: 'What is your date of birth?',
+    qid19: 'What is your address?',
+    qid20: 'Who is your current employer?',
+    qid21: 'What is your employer’s address?',
+    qid22: 'Tell us about your role with this employer',
+    qid23: 'What is your annual income with this employer?',
+    qid24: 'What type of income do you earn?',
+    opt24: ['Salary', 'Hourly', 'Hourly + commissions', 'Commissions'],
+    qid25: 'Describe your additional income sources',
+    qid26: 'What is your annual income from other sources?',
+
+    qid27: 'Would you like to add a co-applicant?',
+    qid28: 'What is the co-applicant’s name?',
+    qid29: 'What is the co-applicant’s date of birth?',
+    qid30: 'What is the co-applicant’s address?',
+    qid31: 'Who is the co-applicant’s current employer?',
+    qid32: 'Describe your relationship to the co-applicant',
+    
   }
 
   mortgageApplication = new FormGroup ({
@@ -81,11 +97,11 @@ export class QuesPageComponent implements OnInit {
     "applicantTimeAmount": new FormControl("", Validators.required),
     "applicantLoanUsage": new FormControl("", Validators.required),
 
-    "applicantAddress": new FormControl("", Validators.required),
-    "applicantUnitNo": new FormControl("", Validators.required),
-    "applicantCityName": new FormControl("", Validators.required),
-    "applicantProvince": new FormControl("", Validators.required),
-    "applicantZipCode": new FormControl("", Validators.required),
+    "applicantPropAddress": new FormControl("", Validators.required),
+    "applicantPropUnitNo": new FormControl("", Validators.required),
+    "applicantPropCityName": new FormControl("", Validators.required),
+    "applicantPropProvince": new FormControl("", Validators.required),
+    "applicantPropZipCode": new FormControl("", Validators.required),
     
     "applicantPropertyKind": new FormControl("", Validators.required),
     "applicantPropertyType": new FormControl("", Validators.required),
@@ -109,7 +125,44 @@ export class QuesPageComponent implements OnInit {
     "applicantBirthMonth": new FormControl("", Validators.required),
     "applicantBirthDate": new FormControl("", Validators.required),
     "applicantBirthYear": new FormControl("", Validators.required),
-    "": new FormControl("", Validators.required)
+    "applicantAddress": new FormControl("", Validators.required),
+    "applicantUnitNo": new FormControl("", Validators.required),
+    "applicantCityName": new FormControl("", Validators.required),
+    "applicantProvince": new FormControl("", Validators.required),
+    "applicantZipCode": new FormControl("", Validators.required),
+    
+    "applicantEmpName": new FormControl("", Validators.required),
+    "applicantEmpIndustry": new FormControl("", Validators.required),
+    "applicantEmpAddress": new FormControl("", Validators.required),
+    "applicantEmpUnitNo": new FormControl("", Validators.required),
+    "applicantEmpCityName": new FormControl("", Validators.required),
+    "applicantEmpProvince": new FormControl("", Validators.required),
+    "applicantEmpZipCode": new FormControl("", Validators.required),
+    "applicantRoleWithEmp": new FormControl("", Validators.required),
+    "applicantEmpDate": new FormControl("", Validators.required),
+    "applicantIndExp": new FormControl("", Validators.required),
+    "applicantAnnualIncome": new FormControl("", Validators.required),
+    "applicantIncomeType": new FormControl("", Validators.required),
+    "applicantAddIncome": new FormControl("", Validators.required),
+    "applicantAddIncomeAmount": new FormControl("", Validators.required),
+    
+    "co-applicantAdd": new FormControl("", Validators.required),
+    "co-applicantFirstName": new FormControl("", Validators.required),
+    "co-applicantLastName": new FormControl("", Validators.required),
+    "co-applicantMiddleName": new FormControl("", Validators.required),
+
+    "co-applicantBirthMonth": new FormControl("", Validators.required),
+    "co-applicantBirthDate": new FormControl("", Validators.required),
+    "co-applicantBirthYear": new FormControl("", Validators.required),
+    "co-applicantAddress": new FormControl("", Validators.required),
+    "co-applicantUnitNo": new FormControl("", Validators.required),
+    "co-applicantCityName": new FormControl("", Validators.required),
+    "co-applicantProvince": new FormControl("", Validators.required),
+    "co-applicantZipCode": new FormControl("", Validators.required),
+    "co-applicantEmpName": new FormControl("", Validators.required),
+    "co-applicantEmpIndustry": new FormControl("", Validators.required),
+    "co-applicantRelation": new FormControl("", Validators.required),
+
   });
 
   uploadBtn()
@@ -120,7 +173,7 @@ export class QuesPageComponent implements OnInit {
   next()
   {
     this.box = this.box+1;
-    if(this.box == 4 || this.box == 7 || this.box == 9 || this.box == 11 || this.box == 12 || this.box == 13){ this.display++ }
+    if(this.box == 4 || this.box == 7 || this.box == 9 || this.box == 11 || this.box == 15 || this.box == 18){ this.display++ }
     this.hd=this.arr[this.display];
   }
 
@@ -132,7 +185,7 @@ export class QuesPageComponent implements OnInit {
   prev()
   {
     this.box = this.box-1;
-    if(this.box == 3 || this.box == 6 || this.box == 8 || this.box == 10 || this.box == 11 || this.box == 12){ this.display-- }
+    if(this.box == 3 || this.box == 6 || this.box == 8 || this.box == 10 || this.box == 14 || this.box == 17){ this.display-- }
     this.hd=this.arr[this.display];
   }
 
