@@ -11,6 +11,7 @@ export class FrontPageComponent implements OnInit {
   constructor( public router:Router ) { }
 
   ngOnInit(): void {
+    
   }
 
 }

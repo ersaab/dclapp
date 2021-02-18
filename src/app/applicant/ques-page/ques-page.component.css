@@ -1,3 +1,9 @@
+.dclogo
+{
+    height: 80px;
+    margin: 5px;
+}
+
 .numb
 {
     padding-top: 110px;
@@ -17,12 +23,9 @@
     border: none;
     background-color: transparent!important;
 }
-.lendHead
-{
-    padding-top: 50px;
-}
 .contentDiv
 {
+    width: 100%;
     padding-top: 10px;
     background-color:transparent;
     height: 520px;
@@ -30,9 +33,13 @@
 .contentBox
 {
     padding-top: 10px;
-    background: #FFFFFF 0% 0% no-repeat padding-box;;
+    background: white 0% 0% no-repeat padding-box;;
     border-radius: 28px;
     box-shadow: 5px 10px 6px #00000029;
+}
+.wideScreen
+{
+    width: 110%;
 }
 .formfield
 {
@@ -40,8 +47,8 @@
 }
 .headImg
 {
-    width: 350px;
-    height: 75px;
+    width: 320px;
+    height: 65px;
     image-resolution: 100%;
 }
 .quesDiv
@@ -51,8 +58,8 @@
 }
 .quesfield
 {
-    justify-content: center;
-    margin-left: 15px;
+    width: 100%;
+    margin: 0px;
 }
 .sideLine
 {
@@ -113,6 +120,86 @@ label.labelLarge
     font-family: 'myriad-light';
     font-size: 16px;
 }
+.xsLabel
+{
+    font-family: 'myriad-light';
+    font-size: 16px;
+    font-weight: 600;
+    float: left;
+}
+.xxsLabel
+{
+    font-family: 'myriad-light';
+    font-size: 9px;
+    margin: 1%;
+    text-align:justify;
+    line-height: 10px;
+}
+textarea{
+    overflow-y: scroll;
+    height: 100px;
+    border-radius: 0px;
+    resize: none;
+    font-family: 'myriad-light';
+    border-color: #335bb5;
+}
+textarea:focus
+{
+    box-shadow: none;
+    border-color: #335bb5;
+}
+textarea::-webkit-scrollbar, .cardTextBox::-webkit-scrollbar {
+width: 4px;
+}
+
+textarea::-webkit-scrollbar-track, .cardTextBox::-webkit-scrollbar-track {
+border-radius: 4px;
+background-color: #f2f2f2;
+}
+
+textarea::-webkit-scrollbar-thumb, .cardTextBox::-webkit-scrollbar-thumb {
+background-color: black;
+border-radius: 2px;
+}
+
+.cardtermsBox
+{
+    background-color: #e6e6e6;
+    border-color: #707070!important;
+    border-radius: 0px;
+    width: 96%;
+    height: 300px;
+}
+.cardTextBox
+{
+    overflow-y: auto;
+    height: 230px;
+}
+.cardTextLines
+{
+    font-family: 'myriad-light';
+    font-weight: 600;
+    margin: 3%;
+}
+hr.cardLine
+{
+    margin: 8px;
+}
+.cardCheckBoxDiv
+{
+    height: 60px;
+}
+.cardCheckBox
+{
+    height: 10px;
+    border-radius: 0px !important;
+    width: 10px;
+}
+.cardCheckBox:focus
+{
+    box-shadow: none;
+}
+
 /* Applicant Details */
 .largeHead
 {
@@ -122,6 +209,14 @@ label.labelLarge
 {
     margin: 0%;
     padding-top: 50px;
+}
+.padding30
+{
+    padding-top: 30px;
+}
+.padding10
+{
+    padding-top: 10px;
 }
 .applicantLastName
 {
@@ -192,10 +287,6 @@ input:read-only {
 
 
 /* Slider & Range Box */
-.quesBox
-{
-    padding-top: 30px;
-}
 .rangesides
 {
     font-family: 'myriad-light';
@@ -331,7 +422,9 @@ input.sp{
 
 .cardBox
 {
-    height: 280px;
+    margin: 0%;
+    height: 290px;
+    width: 400px;
     border: 2px #3556fd solid;
     border-radius: 25px;
 }

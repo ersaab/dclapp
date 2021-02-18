@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-1 sideLine">
+    <div [hidden]="box==1" class="col-sm-1 sideLine"><!-- [hidden]="box==1" -->
         <div class="row numb">
             <ul class="list-group text-center">
                 <li class="list-group-item" [class.active]="display == 1">1</li>
@@ -12,33 +12,36 @@
             </ul>
         </div>
     </div>
-    <div class="col-sm-11 fullbase">
-        <div class="row lendHead">
+    <div class="col-sm-11 fullbase" >
+        <div  class="row padding50no-gutters">
             <div class="col-sm-6">
-                <p class="pageheading"><img class="img-fluid card-img appInfo" src= {{hd.path}} alt="pic">&nbsp; <span><img class="arrowImg" src="./assets/pics/applicant/curvedArrow.png" alt="arrow">&nbsp; </span> {{hd.head}} </p>
+                <div [hidden]="box != 1" class="doubleclickLogo pageheading">
+                    <img src="./assets/pics/DCLFinalLogoVECTORV02WhiteBackground.svg" class="dclogo">
+                </div>
+                <p [hidden]= "box == 1 " class="pageheading"><img class="img-fluid card-img appInfo" src= {{hd.path}} alt="pic">&nbsp; <span><img class="arrowImg" src="./assets/pics/applicant/curvedArrow.png" alt="arrow">&nbsp; </span> {{hd.head}} </p>
             </div>
             <div class="col-sm-6 text-center">
                 <app-navbtns></app-navbtns>
             </div>
         </div>
-        <div class="row contentDiv">
+        <div class="row contentDiv" [class.wideScreen]="box == 1">
             <div class="col-sm-1"></div>
-            <div class="col-sm-10 contentBox">
+            <div class="col-sm-10 contentBox"    >
                 <form [formGroup]="mortgageApplication"  (ngSubmit)="submit()">
-                <div class="row formfield">
-                    <div class="row equityPic">
+                <div class="row formfield" >
+                    <div [hidden]="box == 1" class="row equityPic">
                         <div class="col-sm-12 text-center">
                             <img src="./assets/pics/equity.png" class="headImg" alt="Equity Application">
                         </div>
                     </div>
-                    <div class="row quesDiv">
+                    <div class="row quesDiv text-center">
                         <div class="col-sm-1"></div>
-                        <div class="col-sm-10 quesfield text-center ">
+                        <div class=" col-sm-10 quesfield " [class.wideScreen]="box == 1">
                             <!--Content Here-->
-                             <div class="row 1st" *ngIf="display ==  0 && box == 0" ><!--display ==  1 && box == 1-->
+                            <div class="1st row" *ngIf="display ==  0 && box == 0" ><!--display ==  1 && box == 1-->
                             <div class="form-group">
                                 <label for="applicantBorrowAmount"> {{quesData.qid1}} </label>
-                                <div class="row quesBox">
+                                <div class="row padding50">
                                     <input type="range" class="form-control-range slider" 
                                     formControlName = "applicantBorrowAmount" 
                                     [value]="mortgageApplication.controls['applicantBorrowAmount'].value"
@@ -60,7 +63,7 @@
                                 </div>
                             </div>
                             </div>
-                            <div class="row 2nd" *ngIf="display ==  1 && box == 2" ><!--display ==  1 && box == 2-->
+                            <div class="2nd row" *ngIf="display ==  1 && box == 2" ><!--display ==  1 && box == 2-->
                                 <div class="form-group">
                                     <div ngbDropdown #dropdown="ngbDropdown" >
                                         <label for="applicantTimeAmount"> {{quesData.qid2}} </label>
@@ -112,8 +115,8 @@
                             </div>
                             <div class="4th row" *ngIf="display ==  2 && box == 4" ><!--display ==  2 && box == 4-->
                                 <div class="row uploadRow">
-                                    <div class="col-sm-2"></div>
-                                    <div class="col-sm-8 uploadBox ">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-4 justify-content-center">
                                         <div class="cardBox">
                                                 <a href="#"  
                                                    class="btn btn-upload"
@@ -122,12 +125,12 @@
                                                    Upload a photo of the subject property</a>
                                         </div>
                                     </div>
-                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-3"></div>
                                 </div>
                             </div>
                             <div class="5th row" *ngIf="display ==  2 && box == 5" ><!--display ==  2 && box == 5-->
                                 <label for="address"> {{quesData.qid4}} </label>
-                                <div class="row inpfield">
+                                <div class="row padding50">
                                     <div class="form-group col-sm-9">
                                         <input type="text" formControlName="applicantPropAddress" class="form-control" placeholder="street Address">
                                     </div>
@@ -219,7 +222,7 @@
                                    </div>
                                    <div class="row valueSlider">
                                     <div class="form-group">
-                                        <div class="row quesBox">
+                                        <div class="row padding30">
                                             <label class="smlabel" for="applicantPropValue"> {{quesData.qid7}} </label>
                                             <input type="range" 
                                             class="form-control-range slider" 
@@ -248,7 +251,7 @@
                             <div class="7th row" *ngIf="display ==  3 && box == 7" ><!--display == 3 && box == 7-->
                                 <div class="form-group">
                                     <label for="applicantMortBal"> {{quesData.qid8}} </label>
-                                    <div class="row quesBox">
+                                    <div class="row padding50">
                                         <input type="range" class="form-control-range slider" 
                                         formControlName = "applicantMortBal" 
                                         [value]="mortgageApplication.controls['applicantMortBal'].value"
@@ -351,7 +354,7 @@
                                         <div class="row">
                                             <div class="col-sm-4"></div>
                                             <div class="form-group text-center col-sm-4">
-                                                <label for="applicantPassword" class="smLightLabel"> {{quesData.qid15}} </label>
+                                                <label for="applicantPassword" class="smLightLabel float-left"> {{quesData.qid15}} </label>
                                                 <input type="password" 
                                                        formControlName="applicantPassword" 
                                                        class="form-control" 
@@ -362,7 +365,7 @@
                                          <div class="row">
                                              <div class="col-sm-4"></div>
                                             <div class="form-group text-center col-sm-4">
-                                                <label for="applicantConfirmPassword" class="smLightLabel"> {{quesData.qid16}} </label>
+                                                <label for="applicantConfirmPassword" class="smLightLabel float-left"> {{quesData.qid16}} </label>
                                                 <input type="password" 
                                                         formControlName="applicantConfirmPassword" 
                                                         class="form-control" 
@@ -716,9 +719,8 @@
                                     </div>
                                     <div class="col-sm-2"></div>
                                 </div>
-
                             </div>
-                            <div class="19th row" *ngIf="display == 7&& box == 19" ><!--display == 7 && box == 19-->
+                            <div class="19th row" *ngIf="display == 7 && box == 19" ><!--display == 7 && box == 19-->
                                 <div class="row padding50">
                                     <div class="form-group">
                                         <label for="co-applicantAdd" class=""> {{quesData.qid27}} </label>
@@ -936,7 +938,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="24th row" *ngIf="display == 1 && box == 1" ><!--display == 7 && box == 24-->
+                            <div class="24th row" *ngIf="display == 7 && box == 24" ><!--display == 7 && box == 24-->
                                 <div class="formfield">
                                     <div class="row largeHead">
                                         <label for="co-applicantRelation" class="regLarge" > {{quesData.qid32}} </label>
@@ -953,11 +955,223 @@
                                     </div>
                                 </div>    
                             </div>
-                            <div class="25th row" *ngIf="display == 0 && box == 0" ><!--display ==  && box == -->
+                            <div class="25th row" *ngIf="display == 7 && box == 25" ><!--display == 7 && box == 25 -->
+                                <div class="row formfield">
+                                    <div class="row largeHead">
+                                        <label for="co-applicantEmpAddress"> {{quesData.qid33}} </label>
+                                        <div class="row padding50 no-gutters">
+                                            <div class="row inpfield">
+                                                <div class="form-group col-sm-9">
+                                                    <input type="text" formControlName="co-applicantEmpAddress" class="form-control" placeholder="street Address">
+                                                </div>
+                                                <div class="form-group col-sm-3">
+                                                    <input type="number" formControlName="co-applicantEmpUnitNo" class="form-control" placeholder="Unit Number">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-1"></div>
+                                                <div class="form-group col-sm-3">
+                                                    <input type="text" formControlName="co-applicantEmpCityName" placeholder="city" class="form-control" >
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <div ngbDropdown #dropdown="ngbDropdown" >
+                                                        <input 
+                                                            type="text"
+                                                            class="form-control arrow dropdown-input"
+                                                            data-toggle="co-applicantEmpProvince" 
+                                                            [value]="mortgageApplication.controls['co-applicantEmpProvince']?.value" 
+                                                            ngbDropdownToggle
+                                                            placeholder="Province"
+                                                            readonly> 
+                                                        <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                            <li *ngFor="let item of quesData.opt3" 
+                                                                ngbDropdownItem
+                                                                (click)="mortgageApplication.controls['co-applicantEmpProvince'].setValue(item)"
+                                                                class="dropdown-item">
+                                                                <span>{{item}}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-3">
+                                                <input formControlName="co-applicantEmpZipCode" type="text" placeholder="postal code" class="form-control">
+                                                </div>
+                                                <div class="col-sm-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="26th row" *ngIf="display == 0 && box == 0" ><!--display ==  && box == -->
+                            <div class="26th row" *ngIf="display == 7 && box == 26" ><!--display == 7 && box == 26-->
+                                <div class="row formfield">
+                                    <div class="row largeHead">
+                                        <label for="co-applicantRole" > {{quesData.qid34}} </label>
+                                    </div>
+                                    <div class="row padding50">
+                                        <div class="row">
+                                            <div class="col-sm-2"></div>
+                                            <div class="col-sm-8">
+                                                <label for="co-applicantRoleWithEmp" class="smLightLabel float-left" >Job title with this employer</label>
+                                                <input type="text" 
+                                                       class="form-control" 
+                                                       formControlName="co-applicantRoleWithEmp" 
+                                                       placeholder="Please enter YOUR JOB TITLE HERE">
+                                            </div>
+                                            <div class="col-sm-2"></div>
+                                        </div>
+                                        <div class="row largeHead">
+                                            <div class="col-sm-2"></div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="applicantEmpDate" class="smLightLabel float-left">Employment start date</label>
+                                                    <input type="date" 
+                                                           class="form-control"
+                                                           formControlName="co-applicantEmpDate">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="co-applicantIndExp" class="smLightLabel float-left">Years of industry experiece</label>
+                                                    <input type="month" 
+                                                           class="form-control" 
+                                                           placeholder="Year/Month"
+                                                           formControlName="co-applicantIndExp"
+                                                           class="form-control mnthpl">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2"></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
+                            <div class="27th row" *ngIf="display == 7 && box == 27" ><!--display ==  7&& box == 27-->
+                               <div class="row formfield ">
+                                   <div class="row padding50">
+                                    <div class="col-sm-1"></div>
+                                       <div class="col-sm-10 text-center" >
+                                           <label for="co-applicantAnnualIncome" class="smlabel" > {{quesData.qid35}} </label>
+                                           <input class="form-control text-center"
+                                                  type="number"
+                                                  formControlName="co-applicantAnnualIncome"
+                                                  placeholder="$ XXX,XXX,XXX">
+                                       </div>
+                                       <div class="col-sm-1"></div>
+                                   </div>
+                                   <div class="row padding50">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-10">
+                                            <div ngbDropdown #dropdown="ngbDropdown" >
+                                                <label for="co-applicantIncomeType" class="smlabel" > {{quesData.qid36}} </label>
+                                                <input 
+                                                    type="text"
+                                                    class="form-control arrow dropdown-input "
+                                                    data-toggle="co-applicantIncomeType" 
+                                                    [value]="mortgageApplication.controls['co-applicantIncomeType']?.value" 
+                                                    ngbDropdownToggle
+                                                    placeholder="Please select one"
+                                                    readonly> 
+                                                <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                    <li *ngFor="let item of quesData.opt24" 
+                                                        ngbDropdownItem
+                                                        (click)="mortgageApplication.controls['co-applicantIncomeType'].setValue(item)"
+                                                        class="dropdown-item">
+                                                        <span>{{item}}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1"></div>
+                                </div>
+                               </div>
+                            </div>
+                            <div class="28th row" *ngIf="display == 7 && box == 28" ><!--display == 7 && box == 28-->
+                                <div class="formfield padding50">
+                                    <div class="row">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-10">
+                                            <label for="co-applicantAddIncome" 
+                                                   class="smlabel" > {{quesData.qid37}} <small>(If Applicable)</small> </label>
+                                            <input type="text" 
+                                                   class="form-control text-center" 
+                                                   formControlName="co-applicantAddIncome"
+                                                   placeholder="Please describe your additional income sources here" >    
+                                        </div>
+                                        <div class="col-sm-1"></div>
+                                    </div>
+                                    <div class="row padding50">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-10">
+                                            <label for="co-applicantAddIncomeAmount" class="smlabel" > {{quesData.qid38}} </label>
+                                            <input type="number" 
+                                                   class="form-control text-center" 
+                                                   formControlName="co-applicantAddIncomeAmount"
+                                                   placeholder="$XXX,XXX,XXX" >
+                                        </div>
+                                        <div class="col-sm-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="submit row" *ngIf="display == 1 && box == 1" ><!--display == 8 && box == 29-->
+                                <div class="row headingLine padding50 no-gutters">
+                                    <div class="col-sm-2">
+                                       <img class="float-left" [src]="">
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="row">
+                                            <p class="pageheading"> Heading </p>
+                                        </div>
+                                        <div class="row padding50 text-center">
+                                            <label for="noteToDCL" 
+                                                    class="xsLabel float-left">Add notes for DoubleClick Lending</label>
+                                            <textarea class="form-control" 
+                                                        formControlName="noteToDCL" 
+                                                        rows="5" 
+                                                        placeholder="Add any information you feel we should know" ></textarea>
+                                        </div>
+                                        <div class="row padding10 justify-content-center">
+                                            <label class="xsLabel " >Review & Agree</label>
+                                            <div class="card cardtermsBox">
+                                                <div class="card-text cardTextBox">
+                                                    <p class=" text-left cardTextLines "> {{quesData.mainTerms}} </p>
+                                                </div>
+                                                <hr class="cardLine">
+                                                <div class="row cardCheckBoxDiv no-gutters text-left">
+                                                    <div class="form-check col-sm-6">
+                                                        <label class="xxsLabel" for="applicantTermsAgreed">
+                                                            <input class="cardCheckBox" type="checkbox" value="TermsAgreed" formControlName="applicantTermsAgreed" >
+                                                            {{quesData.terms}} 
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check float-left col-sm-6">
+                                                        <label class="xxsLabel" for="applicantEMessageAgreed">
+                                                            <input class="cardCheckBox" type="checkbox" value="EMsgsAgreed" formControlName="applicantEMessageAgreed" > 
+                                                            {{quesData.emsg}} 
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row headingLine">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-3"></div>
+                                </div>
+                                <div class="row headingLine">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-3"></div>
+                                </div>
+                                <div class="row headingLine">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-3"></div>
+                                </div>
+                            </div>
 
                         </div>
                         <div class="col-sm-1"></div>
@@ -969,8 +1183,8 @@
                         <button class="btn btn-sm btn-danger prevbtn" *ngIf="box == 1" [routerLink]="['/Applicant']" >Back</button>
                         <button class="btn btn-sm btn-danger prevbtn" *ngIf="box != 1" (click)="prev()" >Back</button> &nbsp;
                         <button class="btn btn-sm btn-danger skipi" *ngIf="box == 4" (click)="next()" >Skip</button> &nbsp;
-                        <button class="btn btn-sm btn-primary nextbtn " *ngIf="box != 16" (click)="next()" >Next</button>
-                        <button class="btn btn-sm btn-success subbtn" *ngIf="box == 16"  [disabled]="!mortgageApplication.valid" >Finish</button>
+                        <button class="btn btn-sm btn-primary nextbtn " *ngIf="box != 28" (click)="next()" >Next</button>
+                        <button class="btn btn-sm btn-success subbtn" *ngIf="box == 28"  [disabled]="!mortgageApplication.valid" >Finish</button>
                     </div>
                     <div class="col-sm-2"></div>
                 </div>

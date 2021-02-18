@@ -1,3 +1,7 @@
+.container-fluid
+{
+    background-color: #f4f5f6 !important;
+}
 .headlog
 {
     padding-top: 20px;
@@ -5,6 +9,13 @@
 .dclogo
 {
     padding-top: 25px;
+}
+.jumpManPic
+{
+    margin-top: -70px;
+    margin-left: -120px;
+    width: 150px;
+    height: 200px;
 }
 .btns
 {

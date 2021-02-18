@@ -32,3 +32,7 @@ ul li{
     border-radius: 90px;
     box-shadow: none !important;
 }
+.userName
+{
+    padding-left: 250px;
+}
