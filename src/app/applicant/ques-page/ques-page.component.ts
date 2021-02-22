@@ -94,6 +94,7 @@ export class QuesPageComponent implements OnInit {
     qid29: 'What is the co-applicant’s date of birth?',
     qid30: 'What is the co-applicant’s address?',
     qid31: 'Who is the co-applicant’s current employer?',
+    opt31: ['Varies','Clerical','Labour or trades','Management','Professional'],
     qid32: 'Describe your relationship to the co-applicant',
     qid33: 'What is the co-applicant’s employer’s address?',
     qid34: 'Tell us about the co-applicant’s role with this employer',
@@ -148,7 +149,7 @@ export class QuesPageComponent implements OnInit {
     "applicantProvince": new FormControl("", Validators.required),
     "applicantZipCode": new FormControl("", Validators.required),
     
-    "isUnemployed": new FormControl("", Validators.required),
+    "isAppUnemployed": new FormControl("", Validators.required),
     "applicantEmpName": new FormControl("", Validators.required),
     "applicantEmpIndustry": new FormControl("", Validators.required),
     "applicantEmpAddress": new FormControl("", Validators.required),
@@ -179,6 +180,8 @@ export class QuesPageComponent implements OnInit {
     "co-applicantCityName": new FormControl("", Validators.required),
     "co-applicantProvince": new FormControl("", Validators.required),
     "co-applicantZipCode": new FormControl("", Validators.required),
+
+    "isCo-AppUnemployed": new FormControl("", Validators.required),
     "co-applicantEmpName": new FormControl("", Validators.required),
     "co-applicantEmpIndustry": new FormControl("", Validators.required),
     "co-applicantRelation": new FormControl("", Validators.required),
