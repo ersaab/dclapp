@@ -1,6 +1,6 @@
 .dclogo
 {
-    height: 80px;
+    height: 70px;
     margin: 5px;
 }
 .numb
@@ -35,6 +35,10 @@
     background: white 0% 0% no-repeat padding-box;;
     border-radius: 28px;
     box-shadow: 5px 10px 6px #00000029;
+}
+.submitRow
+{
+    width: 100%;
 }
 .wideScreen
 {
@@ -86,15 +90,33 @@
     padding-top: 0px;
     font-size: 28px;
 }
+.pageheadingSubmit
+{
+    font-family: 'myriad-light';
+    color: black;
+    padding-top: 21px;
+    font-size: 28px;
+}
 .appInfo
 {
-   width: 50px;
-   height: 60px;
+   width: 60px;
+   height: 70px;
+}
+.appInfoSubmit
+{
+    width: 90px;
+    height: 90px;
 }
 .arrowImg
 {
     height: 15px;
     width: 15px;
+}
+.arrowImgSubmit
+{
+    margin-top: 33px;
+    height: 20px;
+    width: 20px;
 }
 label{
     font-family: 'myriad-pro';
@@ -131,14 +153,22 @@ label.labelLarge
 .xxsLabel
 {
     font-family: 'myriad-light';
+    font-weight: 800;
+    font-size: 13px;
+}
+.termsLabel
+{
+    font-family: 'myriad-light';
     font-size: 9px;
-    margin: 1%;
+    margin: 2%;
     text-align:justify;
-    line-height: 10px;
+    line-height: 9px;
+
 }
 textarea{
     overflow-y: scroll;
-    height: 130px;
+    height: 110px;
+    width: 110%;
     border-radius: 0px;
     resize: none;
     font-family: 'myriad-light';
@@ -168,28 +198,32 @@ border-radius: 2px;
     background-color: #e6e6e6;
     border-color: #707070!important;
     border-radius: 0px;
-    width: 96%;
-    height: 300px;
+    width: 110%;
+    height: 250px;
 }
 .cardTextBox
 {
+    line-height: 18px;
     overflow-y: auto;
-    height: 230px;
 }
 .cardTextLines
 {
+    text-align:justify;
     font-family: 'myriad-light';
     font-weight: 600;
     margin: 3%;
 }
 hr.cardLine
 {
-    margin: 8px;
+    margin: 2px;
+    margin-bottom: 0px;
 }
 .cardCheckBoxDiv
 {
+    margin-top: 0%;
     height: 60px;
 }
+
 .cardCheckBox
 {
     height: 10px;
@@ -200,7 +234,10 @@ hr.cardLine
 {
     box-shadow: none;
 }
-
+.submitPageHeadingDiv
+{
+    padding-top: 10px;
+}
 /* Applicant Details */
 .largeHead
 {
@@ -215,9 +252,17 @@ hr.cardLine
 {
     padding-top: 30px;
 }
+.padding20
+{
+    padding-top: 10px;
+}
 .padding10
 {
     padding-top: 10px;
+}
+.padding5
+{
+    padding-top: 5px;
 }
 .applicantLastName
 {
@@ -257,9 +302,9 @@ input:read-only {
 }
 .dropdown-item
 {
-    height: 50px;
-    font-size: 20px;
-    padding: 20px;
+    height: max-content;
+    font-size: 18px;
+    padding: 10px;
     color: #595a5a;
     font-family: 'myriad-light';
     text-transform: uppercase;
@@ -268,7 +313,6 @@ input:read-only {
 .dropdown-item:active
 {
     color:white;
-    text-transform: uppercase;
     background-color: #ffc82d;
 }
 /* dropdown */
@@ -352,6 +396,11 @@ input.radioClass
     width: 18%;
     height: 50%;
 }
+input.radioClassSubmit
+{
+    width: 15px;
+    height: 15px;
+}
 input.radioClass:focus
 {
     box-shadow: none;
@@ -361,6 +410,7 @@ input.radioClass:focus
     font-family: 'myriad-light';
     font-size: 18px;
 }
+
 /* Radio button*/
 
 /* Select with Arrow */
@@ -417,6 +467,48 @@ input.sp{
     border-color:#ffc82d;
     outline: 0;
 }
+
+input.subSection, select.subSection
+{
+    height: 32px;
+    width: 96%;
+}
+.smarrow
+{
+    background-image:
+    linear-gradient(45deg, transparent 50%, #ff8000 50%),
+    linear-gradient(135deg, #ff8000 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+    background-position:
+    calc(100% - 25px) calc(0.5em + 1px),
+    calc(100% - 15.5px) calc(0.5em + 1px),
+    calc(100% - 0em) 0.5em;
+    background-size:
+    9px 9px,
+    10px 9px,
+    0px 2em;
+    background-repeat: no-repeat;
+}
+.smarrow:focus {
+    background-image:
+    linear-gradient(45deg, #ff8000 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, #ff8000 50%),
+    linear-gradient(to left, #ccc, #ccc);
+    background-position:
+    calc(100% - 15.5px) .5em,
+    calc(100% - 25px) .5em,
+    calc(100% - 2.5em) 0.5em;
+    background-size:
+    10px 9px,
+    9px 9px,
+    1px 1.5em;
+    background-repeat: no-repeat;
+    border-color:#ffc82d;
+    outline: 0;
+}
+
+
+
 /* Select with Arrow */
 
 /* Upload Box */
@@ -429,11 +521,25 @@ input.sp{
     border: 2px #3556fd solid;
     border-radius: 25px;
 }
+.cardBoxSubmit
+{
+    margin: 0%;
+    height: 230px;
+    width: 290px;
+    border: 2px #3556fd solid;
+    border-radius: 25px;
+}
 .card-img-top
 {
     padding-top: 20px;
     width: 170px;
     height: 210px;
+}
+.card-img-topSubmit
+{
+    padding-top: 10px;
+    width: 120px;
+    height: 155px;
 }
 .btn-upload
 {

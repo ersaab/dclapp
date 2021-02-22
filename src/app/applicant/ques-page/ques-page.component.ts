@@ -68,6 +68,7 @@ export class QuesPageComponent implements OnInit {
     opt6: ["Single detached", "Condo", "Townhouse", "Duplex", "Triplex", "Cottage", "Other"],
     qid7: 'What is the property value / purchase price?',
     qid8: 'What is the remaining balance on your current mortgage?',
+    qid9: 'Who is current holder of your mortgage?',
     qid10: 'What is your current email address?',
     qid11: 'What is your current phone number?',
     qid12: 'Which contact method do you prefer?',
@@ -139,12 +140,15 @@ export class QuesPageComponent implements OnInit {
     "applicantBirthMonth": new FormControl("", Validators.required),
     "applicantBirthDate": new FormControl("", Validators.required),
     "applicantBirthYear": new FormControl("", Validators.required),
+
+    "isAddressSame": new FormControl("", Validators.required),
     "applicantAddress": new FormControl("", Validators.required),
     "applicantUnitNo": new FormControl("", Validators.required),
     "applicantCityName": new FormControl("", Validators.required),
     "applicantProvince": new FormControl("", Validators.required),
     "applicantZipCode": new FormControl("", Validators.required),
     
+    "isUnemployed": new FormControl("", Validators.required),
     "applicantEmpName": new FormControl("", Validators.required),
     "applicantEmpIndustry": new FormControl("", Validators.required),
     "applicantEmpAddress": new FormControl("", Validators.required),
@@ -168,6 +172,8 @@ export class QuesPageComponent implements OnInit {
     "co-applicantBirthMonth": new FormControl("", Validators.required),
     "co-applicantBirthDate": new FormControl("", Validators.required),
     "co-applicantBirthYear": new FormControl("", Validators.required),
+
+    "isCoAppAddressSame": new FormControl("", Validators.required),
     "co-applicantAddress": new FormControl("", Validators.required),
     "co-applicantUnitNo": new FormControl("", Validators.required),
     "co-applicantCityName": new FormControl("", Validators.required),

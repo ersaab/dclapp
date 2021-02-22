@@ -281,11 +281,11 @@
                                     <div class="row kindType">
                                          <div class="form-group col-sm-6">
                                              <label for="applicantEmail" class="smlabel"> {{quesData.qid10}} </label>
-                                             <input type="email" formControlName="applicantEmail" class="form-control" placeholder="">
+                                             <input type="email" formControlName="applicantEmail" class="form-control" placeholder="NAME@PLACE.COM">
                                          </div>
                                          <div class="form-group col-sm-6">
                                              <label for="applicantPhno" class="smlabel"> {{quesData.qid11}} </label>
-                                             <input type="number" formControlName="applicantPhno" class="form-control" placeholder="">
+                                             <input type="number" formControlName="applicantPhno" class="form-control" placeholder="(555) 555-5555">
                                         </div>
                                     </div>
                                     <div class="row radioDiv">
@@ -1111,25 +1111,29 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="submit row" *ngIf="display == 1 && box == 1" ><!--display == 8 && box == 29-->
-                                <div class="row headingLine padding50 no-gutters">
-                                    <div class="col-sm-2">
-                                       <img class="float-left" [src]="">
+                            <div class="submitRow row" *ngIf="display == 1 && box == 1" ><!--display == 8 && box == 29-->
+                                <div class="row LoanHeadInfoClass  padding20 no-gutters">
+                                    <div class="col-sm-1">
+                                        <img class="img-fluid card-img  float-left appInfoSubmit" src= {{arr[8].path}} alt="pic">
                                     </div>
+                                    <div class="col-sm-1"></div>
+                                    <div class="col-sm-4 submitPageHeadingDiv float-left">
+                                        <p class="pageheadingSubmit float-left" >{{arr[8].head}} </p>
+                                    </div>
+                                    <div class="col-sm-6"></div>
+                                </div>
+                                <div class="row NotesDCL ">
+                                    <div class="col-sm-2"></div>
                                     <div class="col-sm-10">
-                                        <div class="row PageHeadingClass">
-                                            <p class="pageheading"> Heading </p>
-                                        </div>
-                                        <div class="row NotesDCL padding50 text-center">
-                                            <label for="noteToDCL" 
-                                                    class="xsLabel float-left">Add notes for DoubleClick Lending</label>
-                                            <textarea class="form-control" 
-                                                        formControlName="noteToDCL" 
-                                                        rows="5" 
-                                                        placeholder="Add any information you feel we should know" ></textarea>
-                                        </div>
-                                        <div class="row padding10 ReviewTermsCardClass justify-content-center">
-                                            <label class="xsLabel " >Review & Agree</label>
+                                        <label for="noteToDCL" class="xsLabel float-left">
+                                            Add notes for DoubleClick Lending
+                                        </label>
+                                        <textarea class="form-control" 
+                                                  formControlName="noteToDCL" 
+                                                  rows="5" 
+                                                  placeholder="Add any information you feel we should know" ></textarea>
+                                        <br>
+                                        <label class="xsLabel " >Review & Agree</label>
                                             <div class="card cardtermsBox">
                                                 <div class="card-text cardTextBox">
                                                     <p class=" text-left cardTextLines "> {{quesData.mainTerms}} </p>
@@ -1137,40 +1141,650 @@
                                                 <hr class="cardLine">
                                                 <div class="row cardCheckBoxDiv no-gutters text-left">
                                                     <div class="form-check col-sm-6">
-                                                        <label class="xxsLabel" for="applicantTermsAgreed">
+                                                        <label class="termsLabel" for="applicantTermsAgreed">
                                                             <input class="cardCheckBox" type="checkbox" value="TermsAgreed" formControlName="applicantTermsAgreed" >
-                                                            {{quesData.terms}} 
+                                                            {{quesData.terms}}
                                                         </label>
                                                     </div>
                                                     <div class="form-check float-left col-sm-6">
-                                                        <label class="xxsLabel" for="applicantEMessageAgreed">
+                                                        <label class="termsLabel" for="applicantEMessageAgreed">
                                                             <input class="cardCheckBox" type="checkbox" value="EMsgsAgreed" formControlName="applicantEMessageAgreed" > 
-                                                            {{quesData.emsg}} 
+                                                            {{quesData.emsg}}
                                                         </label>
                                                     </div>
                                                 </div>
                                             </div>
+                                    </div>
+                                </div>
+                                <div class="row padding30 SubmitButtonClass">
+                                        <div class="col-sm-10"></div>
+                                        <div class="col-sm-2 ">
+                                            <button class="btn btn-sm btn-success subbtn" *ngIf="box == 1"  [disabled]="!mortgageApplication.valid" >Submit</button>
                                         </div>
-                                        <div class="row padding30 SubmitButtonClass">
-                                            <div class="col-sm-10"></div>
-                                            <div class="col-sm-2 ">
-                                                <button class="btn btn-sm btn-success subbtn" *ngIf="box == 1"  [disabled]="!mortgageApplication.valid" >Submit</button>
+                                </div>
+                                <div class="row LoanInfo padding30 no-gutters">
+                                    <div class="col-sm-1">
+                                        <img class="img-fluid card-img  float-left appInfoSubmit" src= {{arr[1].path}} alt="pic">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <img class="arrowImgSubmit " src="./assets/pics/applicant/curvedArrow.png" alt="arrow">
+                                    </div>
+                                    <div class="col-sm-10 submitPageHeadingDiv ">
+                                        <p class="pageheadingSubmit float-left" >{{arr[1].head}} </p>
+                                    </div>
+                                    <div class="row col-sm-12 LoanInformation">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-4">
+                                            <label for="applicantBorrowAmount" class="xxsLabel"> {{quesData.qid1}} </label>
+                                            <input type="number" 
+                                                class="form-control text-center subSection"
+                                                placeholder="$ xxx,xxx,xxx"
+                                                formControlName="applicantBorrowAmount" 
+                                                [value]="mortgageApplication.controls['applicantBorrowAmount'].value" 
+                                                min="1" step="1" max="2000000">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div ngbDropdown #dropdown="ngbDropdown" >
+                                                <label for="applicantTimeAmount" class="xxsLabel"> {{quesData.qid2}} </label>
+                                                <div class="row">
+                                                    <input 
+                                                        type="text"
+                                                        class="form-control smarrow dropdown-input subSection"
+                                                        data-toggle="applicantTimeAmount" 
+                                                        [value]="mortgageApplication.controls['applicantTimeAmount']?.value" 
+                                                        ngbDropdownToggle
+                                                        placeholder="CHOOSE ONE"
+                                                        readonly> 
+                                                    <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                        <li  *ngFor="let item of quesData.opt2" 
+                                                            ngbDropdownItem
+                                                            (click)="mortgageApplication.controls['applicantTimeAmount'].setValue(item)"
+                                                            class="dropdown-item">
+                                                            <span>{{item}}</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div ngbDropdown #dropdown="ngbDropdown" >
+                                                <label for="applicantLoanUsage" class="xxsLabel" > {{quesData.qid3}} </label>
+                                                <div class="row">
+                                                    <input 
+                                                        type="text"
+                                                        class="form-control smarrow dropdown-input subSection"
+                                                        data-toggle="applicantLoanUsage" 
+                                                        [value]="mortgageApplication.controls['applicantLoanUsage']?.value" 
+                                                        ngbDropdownToggle
+                                                        placeholder="CHOOSE ONE"
+                                                        readonly> 
+                                                    <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                        <li  *ngFor="let item of quesData.opt3" 
+                                                            ngbDropdownItem
+                                                            (click)="mortgageApplication.controls['applicantLoanUsage'].setValue(item)"
+                                                            class="dropdown-item">
+                                                            <span>{{item}}</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row headingLine">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-3"></div>
+                                <div class="row SubjectPropInfo padding50 no-gutters">
+                                    <div class="col-sm-1 headingLogo">
+                                        <img class="img-fluid card-img  float-left appInfoSubmit" src= {{arr[2].path}} alt="pic">
+                                    </div>
+                                    <div class="col-sm-1 arrowRow">
+                                        <img class="arrowImgSubmit " src="./assets/pics/applicant/curvedArrow.png" alt="arrow">
+                                    </div>
+                                    <div class="col-sm-10 submitPageHeadingDiv ">
+                                        <p class="pageheadingSubmit float-left" >{{arr[2].head}} </p>
+                                    </div>
+                                    <div class="row col-sm-12 no-gutters">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-4 padding20">
+                                            <div class="cardBoxSubmit">
+                                                    <a href="#"  
+                                                       class="btn btn-upload xxsLabel"
+                                                       (click)='uploadBtn()'>
+                                                       <img class="card-img-topSubmit" src="./assets/pics/uploadPic.png" alt="uploadImage"><br>
+                                                       Upload a photo of the subject property</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="row col-sm-12 no-gutters">
+                                                <div class="col-sm-12">
+                                                    <label for="address" class="xsLabel"> {{quesData.qid4}} </label>
+                                                </div>
+                                                <div class="row no-gutters col-sm-12">
+                                                    <div class="col-sm-7">
+                                                        <input type="text" formControlName="applicantPropAddress" class="form-control subSection" placeholder="Street Address">
+                                                    </div>
+                                                    <div class="col-sm-5">
+                                                        <input type="number" formControlName="applicantPropUnitNo" class="form-control subSection" placeholder="Unit Number">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row col-sm-12 no-gutters padding5">
+                                                <div class="form-group col-sm-4">
+                                                    <input type="text" formControlName="applicantPropCityName" placeholder="city" class="form-control subSection" >
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <div ngbDropdown #dropdown="ngbDropdown" >
+                                                        <input 
+                                                            type="text"
+                                                            class="form-control smarrow dropdown-input subSection"
+                                                            data-toggle="applicantProvince" 
+                                                            [value]="mortgageApplication.controls['applicantPropProvince']?.value" 
+                                                            ngbDropdownToggle
+                                                            placeholder="Province"
+                                                            readonly> 
+                                                        <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                            <li *ngFor="let item of quesData.opt3" 
+                                                                ngbDropdownItem
+                                                                (click)="mortgageApplication.controls['applicantPropProvince'].setValue(item)"
+                                                                class="dropdown-item">
+                                                                <span>{{item}}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                <input formControlName="applicantPropZipCode" type="text" placeholder="postal code" class="form-control subSection">
+                                                </div>
+                                            </div>
+                                            <div class="row col-sm-12 kindType no-gutters">
+                                                <div class="col-sm-6">
+                                                 <div class="form-group">
+                                                     <label for="applicantPropertyType" class="xsLabel"> {{quesData.qid5}} </label>
+                                                     <div ngbDropdown #dropdown="ngbDropdown" >
+                                                         <input 
+                                                             type="text"
+                                                             class="form-control smarrow dropdown-input subSection"
+                                                             data-toggle="applicantPropertyType" 
+                                                             [value]="mortgageApplication.controls['applicantPropertyType']?.value" 
+                                                             ngbDropdownToggle
+                                                             placeholder="Please Select One"
+                                                             readonly> 
+                                                         <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                             <li *ngFor="let item of quesData.opt5" 
+                                                                 ngbDropdownItem
+                                                                 (click)="mortgageApplication.controls['applicantPropertyType'].setValue(item)"
+                                                                 class="dropdown-item">
+                                                                 <span>{{item}}</span>
+                                                             </li>
+                                                         </ul>
+                                                     </div>
+                                                 </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                 <div class="form-group">
+                                                     <label for="applicantPropertyKind" class="xsLabel"> {{quesData.qid6}} </label>
+                                                     <div ngbDropdown #dropdown="ngbDropdown" >
+                                                         <input 
+                                                             type="text"
+                                                             class="form-control smarrow subSection dropdown-input"
+                                                             data-toggle="applicantPropertyKind" 
+                                                             [value]="mortgageApplication.controls['applicantPropertyKind']?.value" 
+                                                             ngbDropdownToggle
+                                                             placeholder="Please Select One"
+                                                             readonly> 
+                                                         <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                             <li *ngFor="let item of quesData.opt6" 
+                                                                 ngbDropdownItem
+                                                                 (click)="mortgageApplication.controls['applicantPropertyKind'].setValue(item)"
+                                                                 class="dropdown-item">
+                                                                 <span>{{item}}</span>
+                                                             </li>
+                                                         </ul>
+                                                     </div>
+                                                 </div>
+                                                </div>
+                                            </div>
+                                            <div class="row col-sm-12 propertyValue no-gutters ">
+                                                <div class="col-sm-8">
+                                                    <label class="xsLabel" for="applicantPropValue"> {{quesData.qid7}} </label>
+                                                    <input type="number" 
+                                                        class="form-control subSection text-center" 
+                                                        formControlName="applicantPropValue" 
+                                                        [value]="mortgageApplication.controls['applicantPropValue'].value" 
+                                                        min="1" step="1" max="2000000">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="row headingLine">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-3"></div>
+                                <div class="row CurrentMortgageInfo padding50 no-gutters">
+                                    <div class="col-sm-1">
+                                        <img class="img-fluid card-img  float-left appInfoSubmit" src= {{arr[3].path}} alt="pic">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <img class="arrowImgSubmit " src="./assets/pics/applicant/curvedArrow.png" alt="arrow">
+                                    </div>
+                                    <div class="col-sm-10 submitPageHeadingDiv ">
+                                        <p class="pageheadingSubmit float-left" >{{arr[3].head}} </p>
+                                    </div>
+                                    <div class="row col-sm-12 no-gutters">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-6">
+                                            <label for="applicantMortBal" class="xsLabel"> {{quesData.qid8}} </label>
+                                            <input type="number" 
+                                                    class="form-control subSection" 
+                                                    formControlName="applicantMortBal" 
+                                                    [value]="mortgageApplication.controls['applicantMortBal'].value" 
+                                                    min="1" step="1" max="2000000">
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <label for="applicantMortBal" class="xsLabel"> {{quesData.qid9}} </label>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="row ContactInfo padding50 no-gutters">
+                                    <div class="col-sm-1">
+                                        <img class="img-fluid card-img  float-left appInfoSubmit" src= {{arr[4].path}} alt="pic">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <img class="arrowImgSubmit " src="./assets/pics/applicant/curvedArrow.png" alt="arrow">
+                                    </div>
+                                    <div class="col-sm-10 submitPageHeadingDiv ">
+                                        <p class="pageheadingSubmit float-left" >{{arr[4].head}} </p>
+                                    </div>
+                                    <div class="row no-gutters col-sm-12 ">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-5">
+                                            <label for="applicantEmail" class="xsLabel text-center" > {{quesData.qid10}} </label>
+                                            <input type="email" formControlName="applicantEmail" class="form-control subSection" placeholder="NAME@PLACE.COM">
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <label for="applicantPhno" class=" xsLabel"> {{quesData.qid11}} </label>
+                                             <input type="number" formControlName="applicantPhno" class="form-control subSection" placeholder="(555) 555-5555">
+                                        </div>
+                                        <div class="col-sm-1"></div>
+                                    </div>
+                                    <div class="row col-sm-12 padding10 no-gutters">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-9">
+                                            <label for="applicantContactMethod" class="xsLabel float-left"> {{quesData.qid12}} </label>
+                                            <div class="row col-sm-12">
+                                                <div class="col-sm-3">     
+                                                    <input type="radio" 
+                                                    formControlName="applicantContactMethod" 
+                                                    id="Email"
+                                                    class="radioClassSubmit float-left"
+                                                    value="Email">
+                                                    <label for="Email" class="smLightLabel ">
+                                                        EMAIL
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <input type="radio"
+                                                    class="radioClassSubmit  float-left"
+                                                    formControlName="applicantContactMethod"
+                                                    value="Phone">
+                                                    <label for="Phone" class="smLightLabel">
+                                                        PHONE
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <label for="applicantConcentMarket" class="xsLabel float-left"> {{quesData.qid13}} </label>
+                                            <div class="row col-sm-12">
+                                                <div class="col-sm-3">     
+                                                    <input type="radio" 
+                                                           formControlName="applicantConcentMarket"
+                                                           class="radioClassSubmit  float-left"
+                                                           value="Yes">
+                                                    <label for="Yes" class="radioLabel">
+                                                      YES
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <input type="radio" 
+                                                           formControlName="applicantConcentMarket"
+                                                           class="radioClassSubmit  float-left"
+                                                           value="No">
+                                                    <label for="No" class="radioLabel">
+                                                      NO
+                                                    </label>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+                                        <div class="col-sm-2"> </div>
+
+                                    </div>
+                                </div>
+                                <div class="row ApplicantInfo padding50 no-gutters">
+                                    <div class="col-sm-1">
+                                        <img class="img-fluid card-img  float-left appInfoSubmit" src= {{arr[5].path}} alt="pic">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <img class="arrowImgSubmit " src="./assets/pics/applicant/curvedArrow.png" alt="arrow">
+                                    </div>
+                                    <div class="col-sm-10 submitPageHeadingDiv ">
+                                        <p class="pageheadingSubmit float-left" >{{arr[5].head}} </p>
+                                    </div>
+                                    <div class="row applicantNameRow no-gutters">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-11">
+                                            <label for="applicantName" class="xsLabel float-left">{{quesData.qid17}}</label>
+                                        </div>
+                                        <div class="row no-gutters col-sm-12">
+                                            <div class="col-sm-1"></div>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control subSection" formControlName="applicantFirstName" placeholder="First Name">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control subSection" formControlName="applicantMiddleName" placeholder="Middle Name">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control subSection" formControlName="applicantLastName" placeholder="Last Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row applicantDobSubmit no-gutters padding10">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-11">
+                                            <label for="applicantName" class="xsLabel float-left">{{quesData.qid18}}</label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-1"></div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <div ngbDropdown #dropdown="ngbDropdown" >
+                                                        <input 
+                                                            type="text"
+                                                            class="form-control smarrow dropdown-input subSection"
+                                                            data-toggle="applicantBirthMonth" 
+                                                            [value]="mortgageApplication.controls['applicantBirthMonth']?.value" 
+                                                            ngbDropdownToggle
+                                                            placeholder="January"
+                                                            readonly> 
+                                                        <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                            <li  *ngFor="let item of quesData.opt3" 
+                                                                ngbDropdownItem
+                                                                (click)="mortgageApplication.controls['applicantBirthMonth'].setValue(item)"
+                                                                class="dropdown-item">
+                                                                <span>{{item}}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div ngbDropdown #dropdown="ngbDropdown" class="d-flex justify-content-center text-center" >
+                                                    <input 
+                                                        type="text"
+                                                        class="form-control smarrow dropdown-input subSection"
+                                                        data-toggle="applicantBirthDate" 
+                                                        [value]="mortgageApplication.controls['applicantBirthDate']?.value" 
+                                                        ngbDropdownToggle
+                                                        placeholder="01"
+                                                        readonly> 
+                                                    <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                        <li  *ngFor="let item of quesData.opt3" 
+                                                            ngbDropdownItem
+                                                            (click)="mortgageApplication.controls['applicantBirthDate'].setValue(item)"
+                                                            class="dropdown-item">
+                                                            <span>{{item}}</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div ngbDropdown #dropdown="ngbDropdown" >
+                                                    <input 
+                                                        type="text"
+                                                        class="form-control smarrow dropdown-input subSection"
+                                                        data-toggle="applicantBirthYear" 
+                                                        [value]="mortgageApplication.controls['applicantBirthYear']?.value" 
+                                                        ngbDropdownToggle
+                                                        placeholder="1975"
+                                                        readonly> 
+                                                    <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                        <li  *ngFor="let item of quesData.opt3" 
+                                                            ngbDropdownItem
+                                                            (click)="mortgageApplication.controls['applicantBirthYear'].setValue(item)"
+                                                            class="dropdown-item">
+                                                            <span>{{item}}</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row no-gutters padding10">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-11">     
+                                            <label for="applicantAddress" class="xsLabel">
+                                                 {{quesData.qid19}} &nbsp;
+                                                <label class=" xxsLabel" for="isAddressSame">
+                                                    <input class="cardCheckBox" type="checkbox" value="Yes" formControlName="isAddressSame"  >
+                                                    My address is the same as the subject property
+                                                </label>
+                                            </label>
+                                        </div>
+                                        <div class="row col-sm-12 no-gutters">
+                                            <div class="col-sm-1"></div>
+                                            <div class="col-sm-7">
+                                                <input type="text" formControlName="applicantAddress" class="form-control subSection" placeholder="street Address">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input type="number" formControlName="applicantUnitNo" class="form-control subSection" placeholder="Unit Number">
+                                            </div>
+                                            <div class="row col-sm-12 padding5 no-gutters">
+                                                <div class="col-sm-1"></div>
+                                                <div class="form-group col-sm-4">
+                                                    <input type="text" formControlName="applicantCityName" placeholder="city" class="form-control subSection" >
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <div ngbDropdown #dropdown="ngbDropdown" >
+                                                        <input 
+                                                            type="text"
+                                                            class="form-control smarrow subSection dropdown-input"
+                                                            data-toggle="applicantProvince" 
+                                                            [value]="mortgageApplication.controls['applicantProvince']?.value" 
+                                                            ngbDropdownToggle
+                                                            placeholder="Province"
+                                                            readonly> 
+                                                        <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                            <li *ngFor="let item of quesData.opt3" 
+                                                                ngbDropdownItem
+                                                                (click)="mortgageApplication.controls['applicantProvince'].setValue(item)"
+                                                                class="dropdown-item">
+                                                                <span>{{item}}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-3">
+                                                <input formControlName="applicantZipCode" type="text" placeholder="postal code" class="form-control subSection">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row co-ApplicantDetailsClass">     
+                                    <div class="row">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-1">
+                                            <img class="arrowImgSubmit " src="./assets/pics/applicant/sideArrow.png" alt="arrow">
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <label class="float-left smlabel padding30">Co-Applicant</label>
+                                        </div>
+                                    </div>
+                                    <div class="row col-sm-12 no-gutters">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-11">
+                                            <label for="co-applicantRelation" class="float-left xsLabel" > {{quesData.qid32}} </label>
+                                            <div class="row col-sm-9">
+                                                <input type="text" 
+                                                class="form-control text-center subSection" 
+                                                formControlName="co-applicantRelation"
+                                                placeholder="Please describe your relationship to the co-applicant" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row co-applicantNameRow padding10 no-gutters">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control subSection" formControlName="co-applicantFirstName" placeholder="First Name">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control subSection" formControlName="co-applicantMiddleName" placeholder="Middle Name">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control subSection" formControlName="co-applicantLastName" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <div class="row col-sm-12 applicantDobSubmit no-gutters padding10">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-11">
+                                            <label for="applicantName" class="xsLabel text-left">{{quesData.qid18}}</label>
+                                        </div>
+            
+                                       
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <div ngbDropdown #dropdown="ngbDropdown" >
+                                                    <input 
+                                                        type="text"
+                                                        class="form-control smarrow dropdown-input subSection"
+                                                        data-toggle="applicantBirthMonth" 
+                                                        [value]="mortgageApplication.controls['applicantBirthMonth']?.value" 
+                                                        ngbDropdownToggle
+                                                        placeholder="January"
+                                                        readonly> 
+                                                    <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                        <li *ngFor="let item of quesData.opt3" 
+                                                            ngbDropdownItem
+                                                            (click)="mortgageApplication.controls['applicantBirthMonth'].setValue(item)"
+                                                            class="dropdown-item">
+                                                            <span>{{item}}</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div ngbDropdown #dropdown="ngbDropdown" class="d-flex justify-content-center text-center" >
+                                                <input 
+                                                    type="text"
+                                                    class="form-control smarrow dropdown-input subSection"
+                                                    data-toggle="applicantBirthDate" 
+                                                    [value]="mortgageApplication.controls['applicantBirthDate']?.value" 
+                                                    ngbDropdownToggle
+                                                    placeholder="01"
+                                                    readonly> 
+                                                <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                    <li  *ngFor="let item of quesData.opt3" 
+                                                        ngbDropdownItem
+                                                        (click)="mortgageApplication.controls['applicantBirthDate'].setValue(item)"
+                                                        class="dropdown-item">
+                                                        <span>{{item}}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div ngbDropdown #dropdown="ngbDropdown" >
+                                                <input 
+                                                    type="text"
+                                                    class="form-control smarrow dropdown-input subSection"
+                                                    data-toggle="applicantBirthYear" 
+                                                    [value]="mortgageApplication.controls['applicantBirthYear']?.value" 
+                                                    ngbDropdownToggle
+                                                    placeholder="1975"
+                                                    readonly> 
+                                                <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                    <li  *ngFor="let item of quesData.opt3" 
+                                                        ngbDropdownItem
+                                                        (click)="mortgageApplication.controls['applicantBirthYear'].setValue(item)"
+                                                        class="dropdown-item">
+                                                        <span>{{item}}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row col-sm-12 no-gutters addressDiv padding10">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-11">
+                                            <label for="applicantAddress" class="text-left xsLabel ">
+                                                    {{quesData.qid19}} &nbsp;
+                                                <label class="xxsLabel " for="isCoAppAddressSame">
+                                                    <input class="cardCheckBox" type="checkbox" value="Yes" formControlName="isCoAppAddressSame"  >
+                                                    My address is the same as the subject property
+                                                </label>
+                                            </label>
+                                        </div>
+                                    <div class="row col-sm-12 no-gutters co-AppAddress ">
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-7">
+                                            <input type="text" formControlName="co-applicantAddress" class="form-control subSection" placeholder="street Address">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input type="number" formControlName="co-applicantUnitNo" class="form-control subSection" placeholder="Unit Number">
+                                        </div>
+                                        <div class=" row col-sm-12 padding5 no-gutters">
+                                            <div class="col-sm-1"></div>
+                                            <div class="form-group col-sm-4">
+                                                <input type="text" formControlName="co-applicantCityName" placeholder="city" class="form-control subSection" >
+                                            </div>
+                                            <div class="form-group col-sm-4">
+                                                <div ngbDropdown #dropdown="ngbDropdown" >
+                                                    <input 
+                                                        type="text"
+                                                        class="form-control smarrow subSection dropdown-input"
+                                                        data-toggle="co-applicantProvince" 
+                                                        [value]="mortgageApplication.controls['co-applicantProvince']?.value" 
+                                                        ngbDropdownToggle
+                                                        placeholder="Province"
+                                                        readonly> 
+                                                    <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                        <li *ngFor="let item of quesData.opt3" 
+                                                            ngbDropdownItem
+                                                            (click)="mortgageApplication.controls['co-applicantProvince'].setValue(item)"
+                                                            class="dropdown-item">
+                                                            <span>{{item}}</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-3">
+                                            <input formControlName="co-applicantZipCode" type="text" placeholder="postal code" class="form-control subSection">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <div class="row IncomeInfo padding50 no-gutters">
+                                    <div class="col-sm-1">
+                                        <img class="img-fluid card-img  float-left appInfoSubmit" src= {{arr[6].path}} alt="pic">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <img class="arrowImgSubmit " src="./assets/pics/applicant/curvedArrow.png" alt="arrow">
+                                    </div>
+                                    <div class="col-sm-10 submitPageHeadingDiv ">
+                                        <p class="pageheadingSubmit float-left" >{{arr[6].head}} </p>
+                                    </div>
+                                    <div class="row">
+                                        <label for="applicantEmpDetails" class="xsLabel">
+                                            {{quesData.qid20}} &nbsp;
+                                           <label class=" xxsLabel" for="isUnemployed">
+                                               <input class="cardCheckBox" type="checkbox" value="Yes" formControlName="isUnemployed"  >
+                                               I am not currently employed
+                                           </label>
+                                       </label>
+                                        
+                                    </div>
+                                </div>
+
+
+
                                 <div class="row headingLine">
                                     <div class="col-sm-3"></div>
                                     <div class="col-sm-3"></div>
