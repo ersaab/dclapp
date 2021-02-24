@@ -11,50 +11,64 @@ export class QuesPageComponent implements OnInit {
   display:number = 1;
   box:number = 1;
   hd:any;
+  year = [];
+  dates = Array.from({ length: 31 }, (_, i) => i+1);
+  dobMonth:any = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-  arr:any = [{id:0}, {
-              id:1,
-              head: "1 - Loan Information",
-              path: "./assets/pics/applicant/applicantLoanInformation.png"
-            },
-            {
-              id:2,
-              head: "2 - Subject Property Information",
-              path: "./assets/pics/applicant/applicantPropertyInformation.png"
-            }, 
-            {
-              id:3,
-              head: "3 - Current Mortgage information",
-              path: "./assets/pics/applicant/applicantMortgageInformation.png"
-            },
-            {
-              id:4,
-              head: "4 - Contact Information",
-              path: "./assets/pics/applicant/applicantContactInfromation.png"
-            },
-            {
-              id:5,
-              head: "5 - Applicant Information",
-              path: "./assets/pics/applicant/applicantInformation.png"
-            },
-            {
-              id:6,
-              head: "6 - Income Information",
-              path: "./assets/pics/applicant/applicantIncomeInfromation.png"
-            },
-            {
-              id:7,
-              head: "7 - Add a Co-Applicant",
-              path: "./assets/pics/applicant/applicantCoApplicant.png"
-            },
-            {
-              id:8,
-              head: "Review & Submit",
-              path: "./assets/pics/applicant/applicantReview.png"
-            }]
+  arr:any = 
+  [
+    {
+      id:0
+    }, 
+    {
+      id:1,
+      head: "1 - Loan Information",
+      path: "./assets/pics/applicant/applicantLoanInformation.png"
+    },
+    {
+      id:2,
+      head: "2 - Subject Property Information",
+      path: "./assets/pics/applicant/applicantPropertyInformation.png"
+    }, 
+    {
+      id:3,
+      head: "3 - Current Mortgage information",
+      path: "./assets/pics/applicant/applicantMortgageInformation.png"
+    },
+    {
+      id:4,
+      head: "4 - Contact Information",
+      path: "./assets/pics/applicant/applicantContactInfromation.png"
+    },
+    {
+      id:5,
+      head: "5 - Applicant Information",
+      path: "./assets/pics/applicant/applicantInformation.png"
+    },
+    {
+      id:6,
+      head: "6 - Income Information",
+      path: "./assets/pics/applicant/applicantIncomeInfromation.png"
+    },
+    {
+      id:7,
+      head: "7 - Add a Co-Applicant",
+      path: "./assets/pics/applicant/applicantCoApplicant.png"
+    },
+    {
+      id:8,
+      head: "Review & Submit",
+      path: "./assets/pics/applicant/applicantReview.png"
+    }
+  ];
 
   quesData = 
   {
+    countryList: ['Canada', 'USA'],
+    provinceCa:  ['Alberta','British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland', 'Northwest Territories', 'Nova Scotia', 'Nunavut', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan', 'Yukon Territory'],
+    provinceUs:['California', 'Florida', 'New York', 'Taxes'],
+    bankList: ['', '', '', '', '', ''],
+    
     qid1: 'How much Money are you looking to Borrow?',
     qid2: 'When do you need this money in-hand?',
     opt2: ["This week", "This month", "In less than three months", "In less than six months"],
@@ -115,7 +129,7 @@ export class QuesPageComponent implements OnInit {
 
     "applicantPropAddress": new FormControl("", Validators.required),
     "applicantPropUnitNo": new FormControl("", Validators.required),
-    "applicantPropCityName": new FormControl("", Validators.required),
+    "applicantPropCountry": new FormControl("", Validators.required),
     "applicantPropProvince": new FormControl("", Validators.required),
     "applicantPropZipCode": new FormControl("", Validators.required),
     
@@ -124,6 +138,8 @@ export class QuesPageComponent implements OnInit {
     "applicantPropValue": new FormControl("", Validators.required),
     
     "applicantMortBal": new FormControl("", Validators.required),
+    "applicantMortBank": new FormControl("", Validators.required),
+
     
     "applicantPhno": new FormControl("", Validators.required),
     "applicantEmail": new FormControl("", Validators.required),
@@ -142,10 +158,10 @@ export class QuesPageComponent implements OnInit {
     "applicantBirthDate": new FormControl("", Validators.required),
     "applicantBirthYear": new FormControl("", Validators.required),
 
-    "isAddressSame": new FormControl("", Validators.required),
+    "isApplicantAddressSame": new FormControl("", Validators.required),
     "applicantAddress": new FormControl("", Validators.required),
     "applicantUnitNo": new FormControl("", Validators.required),
-    "applicantCityName": new FormControl("", Validators.required),
+    "applicantCountry": new FormControl("", Validators.required),
     "applicantProvince": new FormControl("", Validators.required),
     "applicantZipCode": new FormControl("", Validators.required),
     
@@ -154,7 +170,7 @@ export class QuesPageComponent implements OnInit {
     "applicantEmpIndustry": new FormControl("", Validators.required),
     "applicantEmpAddress": new FormControl("", Validators.required),
     "applicantEmpUnitNo": new FormControl("", Validators.required),
-    "applicantEmpCityName": new FormControl("", Validators.required),
+    "applicantEmpCountry": new FormControl("", Validators.required),
     "applicantEmpProvince": new FormControl("", Validators.required),
     "applicantEmpZipCode": new FormControl("", Validators.required),
     "applicantRoleWithEmp": new FormControl("", Validators.required),
@@ -177,7 +193,7 @@ export class QuesPageComponent implements OnInit {
     "isCoAppAddressSame": new FormControl("", Validators.required),
     "co-applicantAddress": new FormControl("", Validators.required),
     "co-applicantUnitNo": new FormControl("", Validators.required),
-    "co-applicantCityName": new FormControl("", Validators.required),
+    "co-applicantCountry": new FormControl("", Validators.required),
     "co-applicantProvince": new FormControl("", Validators.required),
     "co-applicantZipCode": new FormControl("", Validators.required),
 
@@ -187,7 +203,7 @@ export class QuesPageComponent implements OnInit {
     "co-applicantRelation": new FormControl("", Validators.required),
     "co-applicantEmpAddress": new FormControl("", Validators.required),
     "co-applicantEmpUnitNo": new FormControl("", Validators.required),
-    "co-applicantEmpCityName": new FormControl("", Validators.required),
+    "co-applicantEmpCountry": new FormControl("", Validators.required),
     "co-applicantEmpProvince": new FormControl("", Validators.required),
     "co-applicantEmpZipCode": new FormControl("", Validators.required),
     "co-applicantRoleWithEmp": new FormControl("", Validators.required),
@@ -204,6 +220,15 @@ export class QuesPageComponent implements OnInit {
 
   });
 
+  getYear()
+  {
+    for( let i = (new Date().getFullYear()-80); i <= (new Date().getFullYear() - 18); i++)
+    {
+      this.year.push(i);
+    }
+    return this.year;
+  }
+
   uploadBtn()
   {
 
@@ -212,7 +237,16 @@ export class QuesPageComponent implements OnInit {
   next()
   {
     this.box = this.box+1;
-    if(this.box == 4 || this.box == 7 || this.box == 9 || this.box == 11 || this.box == 14 || this.box == 19 || this.box == 29){ this.display++ }
+    if(this.box == 4 || 
+       this.box == 7 || 
+       this.box == 9 || 
+       this.box == 11 || 
+       this.box == 14 || 
+       this.box == 19 || 
+       this.box == 29)
+        { 
+         this.display++ 
+        }
     this.hd=this.arr[this.display];
   }
 
