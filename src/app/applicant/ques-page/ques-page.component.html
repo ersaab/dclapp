@@ -1207,9 +1207,9 @@
                                             <div class="col-sm-4">
                                                 <div class="form-group">
                                                     <label for="co-applicantIndExp" class="smLightLabel float-left">Years of industry experiece</label>
-                                                    <input type="text" 
+                                                    <input type="number" 
                                                            class="form-control" 
-                                                           placeholder="Years"
+                                                           placeholder="Year"
                                                            formControlName="co-applicantIndExp"
                                                            class="form-control">
                                                 </div>
@@ -1370,7 +1370,7 @@
                                                         ngbDropdownToggle
                                                         placeholder="CHOOSE ONE"
                                                         readonly> 
-                                                    <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                    <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
                                                         <li  *ngFor="let item of quesData.opt2" 
                                                             ngbDropdownItem
                                                             (click)="mortgageApplication.controls['applicantTimeAmount'].setValue(item)"
@@ -1393,7 +1393,7 @@
                                                         ngbDropdownToggle
                                                         placeholder="CHOOSE ONE"
                                                         readonly> 
-                                                    <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                    <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
                                                         <li  *ngFor="let item of quesData.opt3" 
                                                             ngbDropdownItem
                                                             (click)="mortgageApplication.controls['applicantLoanUsage'].setValue(item)"
@@ -1575,7 +1575,7 @@
                                         <div class="col-sm-6">
                                             <label for="applicantMortBal" class="xsLabel"> {{quesData.qid8}} </label>
                                             <input type="number" 
-                                                    class="form-control subSection" 
+                                                    class="form-control subSection text-center"
                                                     formControlName="applicantMortBal" 
                                                     [value]="mortgageApplication.controls['applicantMortBal'].value" 
                                                     min="1" step="1" max="2000000">
@@ -1692,7 +1692,7 @@
                                         <div class="col-sm-11">
                                             <label for="applicantDobDiv" class="xsLabel float-left">{{quesData.qid18}}</label>
                                         </div>
-                                        <div class="row">
+                                        <div class="row col-sm-12 no-gutters ">
                                             <div class="col-sm-1"></div>
                                             <div class="col-sm-4">
                                                 <div class="form-group">
@@ -1705,7 +1705,7 @@
                                                             ngbDropdownToggle
                                                             placeholder="January"
                                                             readonly> 
-                                                        <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                        <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
                                                             <li  *ngFor="let item of dobMonth" 
                                                                 ngbDropdownItem
                                                                 (click)="mortgageApplication.controls['applicantBirthMonth'].setValue(item)"
@@ -1717,7 +1717,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
-                                                <div ngbDropdown #dropdown="ngbDropdown" class="d-flex justify-content-center text-center" >
+                                                <div ngbDropdown #dropdown="ngbDropdown" class="justify-content-center text-center" >
                                                     <input 
                                                         type="text"
                                                         class="form-control smarrow dropdown-input subSection"
@@ -1726,7 +1726,7 @@
                                                         ngbDropdownToggle
                                                         placeholder="01"
                                                         readonly> 
-                                                    <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                    <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
                                                         <li  *ngFor="let item of dates" 
                                                             ngbDropdownItem
                                                             (click)="mortgageApplication.controls['applicantBirthDate'].setValue(item)"
@@ -1746,7 +1746,7 @@
                                                         ngbDropdownToggle
                                                         placeholder="1975"
                                                         readonly> 
-                                                    <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                    <ul class="ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
                                                         <li  *ngFor="let item of getYear()" 
                                                             ngbDropdownItem
                                                             (click)="mortgageApplication.controls['applicantBirthYear'].setValue(item)"
@@ -1876,71 +1876,70 @@
                                         <div class="row col-sm-12 co-applicantDobSubmit no-gutters padding10">
                                             <div class="col-sm-1"></div>
                                             <div class="col-sm-11">
-                                                <label for="applicantName" class="xsLabel text-left">{{quesData.qid18}}</label>
-                                            </div>
-                
-                                        
-                                            <div class="col-sm-1"></div>
-                                            <div class="col-sm-4">
-                                                <div class="form-group">
-                                                    <div ngbDropdown #dropdown="ngbDropdown" >
-                                                        <input 
-                                                            type="text"
-                                                            class="form-control smarrow dropdown-input subSection"
-                                                            data-toggle="applicantBirthMonth" 
-                                                            [value]="mortgageApplication.controls['applicantBirthMonth']?.value" 
-                                                            ngbDropdownToggle
-                                                            placeholder="January"
-                                                            readonly> 
-                                                        <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
-                                                            <li *ngFor="let item of dobMonth" 
-                                                                ngbDropdownItem
-                                                                (click)="mortgageApplication.controls['applicantBirthMonth'].setValue(item)"
-                                                                class="dropdown-item sub">
-                                                                <span>{{item}}</span>
-                                                            </li>
-                                                        </ul>
+                                                <div class="row no-gutters">
+                                                    <label for="applicantDobDiv" class="xsLabel text-left">{{quesData.qid18}}</label>
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <div ngbDropdown #dropdown="ngbDropdown" >
+                                                                <input 
+                                                                    type="text"
+                                                                    class="form-control smarrow dropdown-input subSection"
+                                                                    data-toggle="applicantBirthMonth" 
+                                                                    [value]="mortgageApplication.controls['applicantBirthMonth']?.value" 
+                                                                    ngbDropdownToggle
+                                                                    placeholder="January"
+                                                                    readonly> 
+                                                                <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                                    <li *ngFor="let item of dobMonth" 
+                                                                        ngbDropdownItem
+                                                                        (click)="mortgageApplication.controls['applicantBirthMonth'].setValue(item)"
+                                                                        class="dropdown-item sub">
+                                                                        <span>{{item}}</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div ngbDropdown #dropdown="ngbDropdown" class="d-flex justify-content-center text-center" >
-                                                    <input 
-                                                        type="text"
-                                                        class="form-control smarrow dropdown-input subSection"
-                                                        data-toggle="applicantBirthDate" 
-                                                        [value]="mortgageApplication.controls['applicantBirthDate']?.value" 
-                                                        ngbDropdownToggle
-                                                        placeholder="01"
-                                                        readonly> 
-                                                    <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
-                                                        <li  *ngFor="let item of dates" 
-                                                            ngbDropdownItem
-                                                            (click)="mortgageApplication.controls['applicantBirthDate'].setValue(item)"
-                                                            class="dropdown-item sub">
-                                                            <span>{{item}}</span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div ngbDropdown #dropdown="ngbDropdown" >
-                                                    <input 
-                                                        type="text"
-                                                        class="form-control smarrow dropdown-input subSection"
-                                                        data-toggle="applicantBirthYear" 
-                                                        [value]="mortgageApplication.controls['applicantBirthYear']?.value" 
-                                                        ngbDropdownToggle
-                                                        placeholder="1975"
-                                                        readonly> 
-                                                    <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
-                                                        <li  *ngFor="let item of getYear()" 
-                                                            ngbDropdownItem
-                                                            (click)="mortgageApplication.controls['applicantBirthYear'].setValue(item)"
-                                                            class="dropdown-item sub">
-                                                            <span>{{item}}</span>
-                                                        </li>
-                                                    </ul>
+                                                    <div class="col-sm-4">
+                                                        <div ngbDropdown #dropdown="ngbDropdown" class=" justify-content-center text-center" >
+                                                            <input 
+                                                                type="text"
+                                                                class="form-control smarrow dropdown-input subSection"
+                                                                data-toggle="applicantBirthDate" 
+                                                                [value]="mortgageApplication.controls['applicantBirthDate']?.value" 
+                                                                ngbDropdownToggle
+                                                                placeholder="01"
+                                                                readonly> 
+                                                            <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                                <li  *ngFor="let item of dates" 
+                                                                    ngbDropdownItem
+                                                                    (click)="mortgageApplication.controls['applicantBirthDate'].setValue(item)"
+                                                                    class="dropdown-item sub">
+                                                                    <span>{{item}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div ngbDropdown #dropdown="ngbDropdown" >
+                                                            <input 
+                                                                type="text"
+                                                                class="form-control smarrow dropdown-input subSection"
+                                                                data-toggle="applicantBirthYear" 
+                                                                [value]="mortgageApplication.controls['applicantBirthYear']?.value" 
+                                                                ngbDropdownToggle
+                                                                placeholder="1975"
+                                                                readonly> 
+                                                            <ul class="spl ulparent" ngbDropdownMenu aria-labelledby="contractPeriodDropDown">
+                                                                <li  *ngFor="let item of getYear()" 
+                                                                    ngbDropdownItem
+                                                                    (click)="mortgageApplication.controls['applicantBirthYear'].setValue(item)"
+                                                                    class="dropdown-item sub">
+                                                                    <span>{{item}}</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2081,16 +2080,17 @@
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <label for="applicantEmpDate" class="xsLabel float-left">Employment start date</label>
-                                                        <input type="date" 
-                                                               class="form-control subSection "
+                                                        <input type="month"
+                                                               placeholder="Year/Month"
+                                                               class="form-control mnthpl subSection "
                                                                formControlName="applicantEmpDate">
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <label for="applicantIndExp" class="xsLabel float-left">Industry experiece (Years)</label>
-                                                        <input type="month" 
-                                                            placeholder="Year/Month"
+                                                        <input type="number" 
+                                                            placeholder="Year"
                                                             formControlName="applicantIndExp"
-                                                            class="form-control mnthpl subSection">
+                                                            class="form-control subSection">
                                                     </div>
                                                 </div>
                                                 <div class="row jobTitleDiv no-gutters padding10">
@@ -2111,7 +2111,6 @@
                                                         <input type="number" formControlName="applicantEmpUnitNo" class="form-control subSection" placeholder="Unit Number">
                                                     </div>
                                                     <div class="row col-sm-12 no-gutters padding5">
-                                                        <div class="col-sm-1"></div>
                                                         <div class="form-group col-sm-4">
                                                             <div ngbDropdown #dropdown="ngbDropdown" >
                                                                 <input 
@@ -2165,7 +2164,7 @@
                                                             </ul>
                                                             </div>
                                                         </div>
-                                                        <div class="form-group col-sm-3">
+                                                        <div class="form-group col-sm-4">
                                                             <input class="form-control subSection" formControlName="applicantEmpZipCode" type="text" placeholder="postal code" >
                                                         </div>
                                                     </div>
@@ -2277,16 +2276,17 @@
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <label for="co-applicantEmpDate" class="xsLabel float-left">Employment start date</label>
-                                                        <input type="date" 
-                                                            class="form-control subSection "
+                                                        <input type="month" 
+                                                            placeholder="Year/Month"
+                                                            class="form-control mnthpl subSection "
                                                             formControlName="co-applicantEmpDate">
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <label for="co-applicantIndExp" class="xsLabel float-left">Industry experiece (Years)</label>
-                                                        <input type="month" 
-                                                            placeholder="Year/Month"
+                                                        <input type="number" 
+                                                            placeholder="Year"
                                                             formControlName="co-applicantIndExp"
-                                                            class="form-control mnthpl subSection">
+                                                            class="form-control subSection">
                                                     </div>
                                                 </div>
                                                 <div class="row jobTitleDiv no-gutters padding10">
@@ -2299,7 +2299,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row no-gutters empAddressDiv padding10">
-                                                    <p class="xsLabel float-left">Employer's Address</p>
+                                                    <p class="xsLabel float-left">Co-Applicant Employer's Address</p>
                                                     <div class=" col-sm-9">
                                                         <input type="text" formControlName="co-applicantEmpAddress" class="form-control subSection " placeholder="street Address">
                                                     </div>
@@ -2307,7 +2307,6 @@
                                                         <input type="number" formControlName="co-applicantEmpUnitNo" class="form-control subSection" placeholder="Unit Number">
                                                     </div>
                                                     <div class="row col-sm-12 no-gutters padding5">
-                                                        <div class="col-sm-1"></div>
                                                         <div class="form-group col-sm-4">
                                                             <div ngbDropdown #dropdown="ngbDropdown" >
                                                                 <input 
@@ -2361,7 +2360,7 @@
                                                             </ul>
                                                             </div>
                                                         </div>
-                                                        <div class="form-group col-sm-3">
+                                                        <div class="form-group col-sm-4">
                                                             <input class="form-control subSection" formControlName="co-applicantEmpZipCode" type="text" placeholder="postal code" >
                                                         </div>
                                                     </div>

@@ -337,7 +337,7 @@ input:read-only {
 {
     background-color: #cfcfcf !important;
 }
-.dropdown-item:active
+.dropdown-item:active, .sub:active
 {
     color:white;
     background-color: #ffc82d;
@@ -501,6 +501,7 @@ input.subSection, select.subSection
     height: 28px;
     width: 96%;
 }
+
 .smarrow
 {
     background-image:
